@@ -27,16 +27,12 @@ ADDITIONAL_GUI_LIBS += \
 	-lGormCore \
 	-lGorm 
 
-ADDITIONAL_INCLUDE_DIRS += \
-	-IInterfaceBuilder \
-	-IGormCore
-
 ifeq ($(GNUSTEP_TARGET_OS),mingw32)
 ADDITIONAL_LIB_DIRS += \
-	-LGormLib/$(GNUSTEP_OBJ_DIR) \
-	-LGormCore/$(GNUSTEP_OBJ_DIR) 
+	-L../GormLib/$(GNUSTEP_OBJ_DIR) \
+	-L../GormCore/$(GNUSTEP_OBJ_DIR) 
 else
 ADDITIONAL_LIB_DIRS += \
-	-LGormLib/$(GNUSTEP_OBJ_DIR) \
-	-LGormCore/$(GNUSTEP_OBJ_DIR)
+	-L../GormLib/$(GNUSTEP_OBJ_DIR) \
+	-L../GormCore/$(GNUSTEP_OBJ_DIR)
 endif
