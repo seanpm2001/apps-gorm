@@ -23,6 +23,14 @@
 #
 
 # ADDITIONAL_OBJCFLAGS += -Wall -Werror
-ADDITIONAL_GUI_LIBS += -lGorm -lGormObjCHeaderParser
-ADDITIONAL_INCLUDE_DIRS += -IInterfaceBuilder -IGormObjCHeaderParser
-ADDITIONAL_LIB_DIRS += -LGormLib/$(GNUSTEP_OBJ_DIR) -LGormObjCHeaderParser/$(GNUSTEP_OBJ_DIR)
+ADDITIONAL_GUI_LIBS += \
+	-lGorm \
+	-lGormObjCHeaderParser -lGormPrefs
+
+ADDITIONAL_INCLUDE_DIRS += \
+	-IInterfaceBuilder -IGormObjCHeaderParser -IGormPrefs
+
+ADDITIONAL_LIB_DIRS += \
+	-LGormLib/$(GNUSTEP_OBJ_DIR) \
+	-LGormObjCHeaderParser/$(GNUSTEP_OBJ_DIR) \
+	-LGormPrefs/GormPrefs.framework/Versions/Current

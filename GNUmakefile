@@ -43,7 +43,8 @@ else
 SUBPROJECTS = \
 	GormLib \
 	Palettes \
-	GormObjCHeaderParser
+	GormObjCHeaderParser \
+	GormPrefs
 endif
 
 #
@@ -126,17 +127,10 @@ Gorm_RESOURCE_FILES = \
 	Images/RightArr.tiff \
 	Images/GormTesting.tiff \
 	Resources/GormClassPanel.gorm \
-	Resources/GormPrefColors.gorm \
 	Resources/GormViewSizeInspector.gorm \
 	Resources/GormCustomClassInspector.gorm \
 	Resources/GormSoundInspector.gorm \
 	Resources/GormImageInspector.gorm \
-	Resources/GormPreferences.gorm \
-	Resources/GormPrefHeaders.gorm \
-	Resources/GormPrefGeneral.gorm \
-	Resources/GormPrefGuideline.gorm \
-	Resources/GormPrefPalettes.gorm \
-	Resources/GormShelfPref.gorm \
 	Resources/GormScrollViewAttributesInspector.gorm \
 	Resources/GormNSSplitViewInspector.gorm \
 	Resources/GormClassInspector.gorm \
@@ -151,7 +145,6 @@ Gorm_HEADERS = \
 	GormClassInspector.h \
 	GormClassManager.h \
 	GormClassPanelController.h \
-	GormColorsPref.h \
 	GormControlEditor.h \
 	GormCustomClassInspector.h \
 	GormCustomView.h \
@@ -160,9 +153,6 @@ Gorm_HEADERS = \
 	GormFilesOwner.h \
 	GormFontViewController.h \
 	GormFunctions.h \
-	GormGeneralPref.h \
-	GormGuidelinePref.h \
-	GormHeadersPref.h \
 	GormImage.h \
 	GormImageInspector.h \
 	GormInspectorsManager.h \
@@ -171,14 +161,11 @@ Gorm_HEADERS = \
 	GormNSSplitViewInspector.h \
 	GormOutlineView.h \
 	GormPalettesManager.h \
-	GormPalettesPref.h \
 	GormPlacementInfo.h \
-	GormPrefController.h \
 	GormPrivate.h \
 	GormResource.h \
 	GormScrollViewAttributesInspector.h \
 	GormSetNameController.h \
-	GormShelfPref.h \
 	GormSound.h \
 	GormSoundInspector.h \
 	GormSoundView.h \
@@ -199,7 +186,6 @@ Gorm_OBJC_FILES = \
 	GormClassInspector.m \
 	GormClassManager.m \
 	GormClassPanelController.m \
-	GormColorsPref.m \
 	GormControlEditor.m \
 	GormCustomClassInspector.m \
 	GormCustomView.m \
@@ -208,10 +194,7 @@ Gorm_OBJC_FILES = \
 	GormFilesOwner.m \
 	GormFontViewController.m \
 	GormFunctions.m \
-	GormGeneralPref.m \
-	GormGuidelinePref.m \
 	GormGenericEditor.m \
-	GormHeadersPref.m \
 	GormImage.m \
 	GormImageEditor.m \
 	GormImageInspector.m \
@@ -223,14 +206,11 @@ Gorm_OBJC_FILES = \
 	GormObjectInspector.m \
 	GormOutlineView.m \
 	GormPalettesManager.m \
-	GormPalettesPref.m \
-	GormPrefController.m \
 	GormResource.m \
 	GormResourceEditor.m \
 	GormScrollViewAttributesInspector.m \
 	GormScrollViewEditor.m \
 	GormSetNameController.m \
-	GormShelfPref.m \
 	GormSound.m \
 	GormSoundEditor.m \
 	GormSoundInspector.m \
