@@ -164,7 +164,7 @@ static NSImage	*dragImage = nil;
 - (void) mouseDown: (NSEvent*)theEvent
 {
   NSPoint	dragPoint = [theEvent locationInWindow];
-  NSView	*view = [super hitTest: dragPoint];
+  NSView	*view;
   GormDocument	*active = [(id<IB>)NSApp activeDocument];
   NSRect	rect;
   NSString	*type;
@@ -173,6 +173,11 @@ static NSImage	*dragImage = nil;
   NSImageRep	*rep;
   NSMenu        *menu;
 
+  if ([self superview] != nil)
+    {
+      dragPoint = [[self superview] convertPoint: dragPoint fromView: nil];
+    }
+  view = [super hitTest: dragPoint];
   if (view == self || view == nil)
     {
       return;		// No subview to drag.
@@ -181,8 +186,8 @@ static NSImage	*dragImage = nil;
      control (like the contentView of an NSBox) */
   while (view != nil && [view superview] != self)
     view = [view superview];
-  rect = [[view superview] convertRect: [view frame] 
-			   toView: nil]; // this will always get the correct coordinates...
+  // this will always get the correct coordinates...
+  rect = [[view superview] convertRect: [view frame] toView: nil];
 
   if (active == nil)
     {
@@ -209,7 +214,7 @@ static NSImage	*dragImage = nil;
   menu = [active objectForName: @"NSMenu"];
   
   [self dragImage: dragImage
-	       at: rect.origin
+	       at: [view frame].origin
 	   offset: NSMakeSize(0,0)
 	    event: theEvent
        pasteboard: pb

@@ -1,3 +1,8 @@
+2005-03-29  Richard Frith-Macdonald <rfm@gnu.org>
+
+	* GormPalettesManager.m: Fix some coordinate translation bugs when
+	the gui is decorating windows itsself.
+
 2005-03-29 02:47 Gregory John Casamento <greg_casamento@yahoo.com>
 
 	* GormCore/GNUmakefile.preamble: Removed link to GormPrefs.
