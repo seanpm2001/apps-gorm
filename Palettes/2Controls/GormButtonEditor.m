@@ -24,9 +24,9 @@
 
 #include <InterfaceBuilder/InterfaceBuilder.h>
 #include <AppKit/AppKit.h>
-#include "GormPrivate.h"
+#include <GormCore/GormPrivate.h>
+#include <GormCore/GormViewWithSubviewsEditor.h>
 #include "GormButtonEditor.h"
-#include "GormViewWithSubviewsEditor.h"
 
 #define _EO ((NSButton *)_editedObject)
 

@@ -1,9 +1,9 @@
-/* GormMatrixEditor.h - Editor for matrices.
+/* GormViewWithSubviewsEditor.h
  *
  * Copyright (C) 2002 Free Software Foundation, Inc.
  *
- * Author:	Pierre-Yves Rivaille
- * Date:	Aug 2002
+ * Author:	Pierre-Yves Rivaille <pyrivail@ens-lyon.fr>
+ * Date:	2002
  * 
  * This file is part of GNUstep.
  * 
@@ -21,17 +21,32 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
-#ifndef	INCLUDED_GormMatrixEditor_h
-#define	INCLUDED_GormMatrixEditor_h
+#ifndef	INCLUDED_GormViewWithSubviewsEditor_h
+#define	INCLUDED_GormViewWithSubviewsEditor_h
 
-#include "GormViewWithSubviewsEditor.h"
+#include <GormCore/GormViewEditor.h>
 
-@interface GormMatrixEditor : GormViewWithSubviewsEditor
+@interface GormViewWithSubviewsEditor : GormViewEditor <IBSelectionOwners>
 {
-  NSCell* selected;
-  int selectedRow;
-  int selectedCol;
+  BOOL _displaySelection;
+  GormViewWithSubviewsEditor *openedSubeditor;
+  NSMutableArray *selection;
+  BOOL opened;
 }
+
+- (void) setOpenedSubeditor: (GormViewWithSubviewsEditor *) newEditor;
+- (void) openParentEditor;
+- (void) makeSubeditorResign;
+- (void) silentlyResetSelection;
+- (void) selectObjects: (NSArray *) objects;
+- (void) copySelection;
+
+/*
+ * Close subeditors of this editor.
+ */
+- (void) closeSubeditors;
+- (void) deactivateSubeditors;
+- (void) changeFont: (id)sender;
 @end
 
 #endif

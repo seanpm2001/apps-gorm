@@ -30,6 +30,9 @@
  * Method to return the image that should be used to display objects within
  * the matrix containing the objects in a document.
  */
+@interface NSObject (GormObjectAdditions)
+@end
+
 @implementation NSObject (GormObjectAdditions)
 - (NSImage*) imageForViewer
 {
@@ -49,22 +52,27 @@
 {
   return @"GormObjectInspector";
 }
+
 - (NSString*) connectInspectorClassName
 {
   return @"GormConnectionInspector";
 }
+
 - (NSString*) sizeInspectorClassName
 {
   return @"GormNotApplicableInspector";
 }
+
 - (NSString*) helpInspectorClassName
 {
   return @"GormNotApplicableInspector";
 }
+
 - (NSString*) classInspectorClassName
 {
   return @"GormCustomClassInspector";
 }
+
 - (NSString*) editorClassName
 {
   return @"GormObjectEditor";

@@ -61,7 +61,6 @@ typedef enum {None, Outlets, Actions} GSAttributeType;
 - (void) setOutletColumn: (NSTableColumn *)oc;
 - (NSMenuItem *)menuItem;
 - (void) setMenuItem: (NSMenuItem *)item;
-- (void) addAttributeToClass;
 - (GSAttributeType)editType;
 - (void) removeItemAtRow: (int)row;
 - (void) reset;

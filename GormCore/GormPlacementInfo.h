@@ -24,6 +24,11 @@
 #ifndef	INCLUDED_GormPlacementInfo_h
 #define	INCLUDED_GormPlacementInfo_h
 
+#include <Foundation/NSObject.h>
+#include <InterfaceBuilder/InterfaceBuilder.h>
+
+@class NSView, NSMutableArray;
+
 @interface GormPlacementInfo : NSObject
 {
 @public

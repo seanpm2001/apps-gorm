@@ -1,4 +1,4 @@
-/* GormViewWithContentViewEditor.h
+/* GormControlEditor.h
  *
  * Copyright (C) 2002 Free Software Foundation, Inc.
  *
@@ -21,30 +21,13 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
-#ifndef	INCLUDED_GormViewWithContentViewEditor_h
-#define	INCLUDED_GormViewWithContentViewEditor_h
+#ifndef	INCLUDED_GormControlEditor_h
+#define	INCLUDED_GormControlEditor_h
 
-#include "GormViewWithSubviewsEditor.h"
+#include <GormCore/GormViewEditor.h>
 
-@class GormInternalViewEditor;
+@interface GormControlEditor : GormViewEditor
 
-@interface GormViewWithContentViewEditor : GormViewWithSubviewsEditor
-{
-  GormInternalViewEditor *contentViewEditor;
-  BOOL _followGuideLine;
-}
-
-- (void) handleMouseOnKnob: (IBKnobPosition) knob
-		    ofView: (GormViewEditor *) view
-		 withEvent: (NSEvent *) theEvent;
-
-- (void) handleMouseOnView: (GormViewEditor *) view
-		 withEvent: (NSEvent *) theEvent;
-- (void) postDrawForView: (GormViewEditor *) viewEditor;
-- (void) groupSelectionInSplitView;
-- (void) groupSelectionInBox;
-- (void) ungroup;
-- (void) pasteInView: (NSView *)view;
 @end
 
 #endif

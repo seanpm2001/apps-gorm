@@ -1,5 +1,5 @@
 #include "GormColorsPref.h"
-#include "GormFunctions.h"
+#include <GormCore/GormFunctions.h>
 
 #include <Foundation/NSUserDefaults.h>
 #include <AppKit/NSWindow.h>

@@ -1,9 +1,9 @@
-/* GormSplitViewEditor.h - Editor for splitviews.
+/* GormBoxEditor.h
  *
  * Copyright (C) 2002 Free Software Foundation, Inc.
  *
- * Author:	Pierre-Yves Rivaille
- * Date:	Aug 2002
+ * Author:	Pierre-Yves Rivaille <pyrivail@ens-lyon.fr>
+ * Date:	2002
  * 
  * This file is part of GNUstep.
  * 
@@ -19,15 +19,18 @@
  * 
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
-#ifndef	INCLUDED_GormSplitViewEditor_h
-#define	INCLUDED_GormSplitViewEditor_h
 
-#include "GormViewWithSubviewsEditor.h"
+#ifndef	INCLUDED_GormBoxEditor_h
+#define	INCLUDED_GormBoxEditor_h
 
-@interface GormSplitViewEditor : GormViewWithSubviewsEditor
+#include <GormCore/GormViewWithContentViewEditor.h>
+#include <GormCore/GormInternalViewEditor.h>
+
+@interface GormBoxEditor : GormViewWithSubviewsEditor
 {
+  GormInternalViewEditor *contentViewEditor;
 }
 - (NSArray *)destroyAndListSubviews;
 @end

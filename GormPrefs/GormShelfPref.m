@@ -28,9 +28,9 @@
 
 #include <Foundation/Foundation.h>
 #include <AppKit/AppKit.h>
-#include "GormFunctions.h"
+#include <GormCore/GormFunctions.h>
+#include <GormCore/GormPrivate.h>
 #include "GormShelfPref.h"
-#include "GormPrivate.h"
 
 #define BOX_W 197
 #define NAME_OR_Y 5

@@ -24,11 +24,11 @@
  */
 
 #include "GormPrivate.h"
-#include "GormPrefController.h"
 #include "GormFontViewController.h"
 #include "GormSetNameController.h"
 #include "GNUstepGUI/GSNibCompatibility.h"
 #include "GNUstepBase/GSObjCRuntime.h"
+#include <GormPrefs/GormPrefController.h>
 
 // for templates...
 #include <AppKit/NSControl.h>

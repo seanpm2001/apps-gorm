@@ -35,18 +35,12 @@ include ./Version
 #
 # Each palette is a subproject
 #
-ifeq ($(GNUSTEP_TARGET_OS),mingw32)
 SUBPROJECTS = \
-	GormLib \
-	GormPrefs \
-	GormObjCHeaderParser
-else
-SUBPROJECTS = \
-	GormLib \
-	Palettes \
 	GormObjCHeaderParser \
-	GormPrefs
-endif
+	GormPrefs \
+	GormLib \
+	GormCore \
+	Palettes 
 
 #
 # MAIN APP
@@ -55,10 +49,10 @@ APP_NAME = Gorm
 Gorm_PRINCIPAL_CLASS=Gorm
 Gorm_APPLICATION_ICON=Gorm.tiff
 Gorm_RESOURCE_FILES = \
-	GormInfo.plist \
-	ClassInformation.plist \
-	VersionProfiles.plist \
-	Defaults.plist \
+	Resources/GormInfo.plist \
+	Resources/ClassInformation.plist \
+	Resources/VersionProfiles.plist \
+	Resources/Defaults.plist \
 	Palettes/0Menus/0Menus.palette \
 	Palettes/1Windows/1Windows.palette \
 	Palettes/2Controls/2Controls.palette \
@@ -140,95 +134,10 @@ Gorm_RESOURCE_FILES = \
 	Resources/GormDocument.gorm \
 	Resources/Gorm.gorm
 
-Gorm_HEADERS = \
-	Gorm.h \
-	GormBoxEditor.h \
-	GormClassInspector.h \
-	GormClassManager.h \
-	GormClassPanelController.h \
-	GormControlEditor.h \
-	GormCustomClassInspector.h \
-	GormCustomView.h \
-	GormDocument.h \
-	GormFilePrefsManager.h \
-	GormFilesOwner.h \
-	GormFontViewController.h \
-	GormFunctions.h \
-	GormImage.h \
-	GormImageInspector.h \
-	GormInspectorsManager.h \
-	GormInternalViewEditor.h \
-	GormMatrixEditor.h \
-	GormNSSplitViewInspector.h \
-	GormOutlineView.h \
-	GormPalettesManager.h \
-	GormPlacementInfo.h \
-	GormPrivate.h \
-	GormResource.h \
-	GormScrollViewAttributesInspector.h \
-	GormSetNameController.h \
-	GormSound.h \
-	GormSoundInspector.h \
-	GormSoundView.h \
-	GormSplitViewEditor.h \
-	GormViewEditor.h \
-	GormViewKnobs.h \
-	GormViewWindow.h \
-	GormViewWithContentViewEditor.h \
-	GormViewWithSubviewsEditor.h \
-	NSColorWell+GormExtensions.h \
-	NSFontManager+GormExtensions.h \
-	NSView+GormExtensions.h 
+Gorm_HEADERS = 
 
 Gorm_OBJC_FILES = \
-	GModelDecoder.m \
-	GormBoxEditor.m \
-	GormClassEditor.m \
-	GormClassInspector.m \
-	GormClassManager.m \
-	GormClassPanelController.m \
-	GormControlEditor.m \
-	GormCustomClassInspector.m \
-	GormCustomView.m \
-	GormDocument.m \
-	GormFilePrefsManager.m \
-	GormFilesOwner.m \
-	GormFontViewController.m \
-	GormFunctions.m \
-	GormGenericEditor.m \
-	GormImage.m \
-	GormImageEditor.m \
-	GormImageInspector.m \
-	GormInspectorsManager.m \
-	GormInternalViewEditor.m \
-	GormMatrixEditor.m \
-	GormNSSplitViewInspector.m \
-	GormObjectEditor.m \
-	GormObjectInspector.m \
-	GormOutlineView.m \
-	GormPalettesManager.m \
-	GormResource.m \
-	GormResourceEditor.m \
-	GormScrollViewAttributesInspector.m \
-	GormScrollViewEditor.m \
-	GormSetNameController.m \
-	GormSound.m \
-	GormSoundEditor.m \
-	GormSoundInspector.m \
-	GormSoundView.m \
-	GormSplitViewEditor.m \
-	GormViewEditor.m \
-	GormViewKnobs.m \
-	GormViewSizeInspector.m \
-	GormViewWindow.m \
-	GormViewWithContentViewEditor.m \
-	GormViewWithSubviewsEditor.m \
-	GormWindowEditor.m \
-	NSColorWell+GormExtensions.m \
-	NSFontManager+GormExtensions.m \
-	NSView+GormExtensions.m \
-	main.m \
-        Gorm.m
+	main.m 
 
 -include GNUmakefile.preamble
 -include GNUmakefile.local

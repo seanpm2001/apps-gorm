@@ -2,7 +2,6 @@
 #define INCLUDED_GormPrefController_h
 
 #include <Foundation/NSObject.h>
-
 #include <AppKit/NSWindowController.h>
 
 @interface GormPrefController : NSWindowController

@@ -33,12 +33,12 @@
 #include <InterfaceBuilder/IBApplicationAdditions.h>
 #include <InterfaceBuilder/IBInspector.h>
 #include <InterfaceBuilder/IBViewAdditions.h>
-#include "GormFilesOwner.h"
-#include "GormDocument.h"
-#include "GormInspectorsManager.h"
-#include "GormClassManager.h"
-#include "GormPalettesManager.h"
-#include "GormOutlineView.h"
+#include <GormCore/GormFilesOwner.h>
+#include <GormCore/GormDocument.h>
+#include <GormCore/GormInspectorsManager.h>
+#include <GormCore/GormClassManager.h>
+#include <GormCore/GormPalettesManager.h>
+#include <GormCore/GormOutlineView.h>
 
 extern NSString *GormLinkPboardType;
 extern NSString *GormToggleGuidelineNotification;
@@ -184,6 +184,7 @@ extern NSString *GormResizeCellNotification;
 - (BOOL) currentSelectionIsClass;
 - (void) editClass;
 - (void) createSubclass;
+- (void) addAttributeToClass;
 - (void) deleteSelection;
 @end
 

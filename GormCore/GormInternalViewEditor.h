@@ -1,4 +1,4 @@
-/* GormBoxEditor.h
+/* GormInternalViewEditor.h
  *
  * Copyright (C) 2002 Free Software Foundation, Inc.
  *
@@ -19,20 +19,18 @@
  * 
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
-  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
+#ifndef	INCLUDED_GormInternalViewEditor_h
+#define	INCLUDED_GormInternalViewEditor_h
 
-#ifndef	INCLUDED_GormBoxEditor_h
-#define	INCLUDED_GormBoxEditor_h
+#include <GormCore/GormViewWithContentViewEditor.h>
 
-#include "GormViewWithContentViewEditor.h"
-#include "GormInternalViewEditor.h"
-
-@interface GormBoxEditor : GormViewWithSubviewsEditor
+@interface GormInternalViewEditor: GormViewWithContentViewEditor
 {
-  GormInternalViewEditor *contentViewEditor;
 }
-- (NSArray *)destroyAndListSubviews;
+- (NSArray*) destroyAndListSubviews;
+- (void) changeFont: (id)sender;
 @end
 
 #endif

@@ -1,9 +1,8 @@
-#include "GormPalettesPref.h"
-#include "GormPrivate.h"
-
+#include <GormCore/GormPrivate.h>
 #include <Foundation/NSUserDefaults.h>
 #include <AppKit/NSWindow.h>
 #include <AppKit/NSNibLoading.h>
+#include "GormPalettesPref.h"
 
 @class NSTableView;
 

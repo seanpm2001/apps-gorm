@@ -3,7 +3,6 @@
 
 #include <Foundation/NSObject.h>
 #include <Foundation/NSArray.h>
-
 #include <AppKit/NSView.h>
 
 @interface GormHeadersPref : NSObject

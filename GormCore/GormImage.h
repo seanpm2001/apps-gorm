@@ -29,7 +29,7 @@
 #define INCLUDED_GormImage_h
 
 #include <Foundation/NSObject.h>
-#include "GormResource.h"
+#include <GormCore/GormResource.h>
 
 @class NSString, NSImage;
 
