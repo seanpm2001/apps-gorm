@@ -38,6 +38,7 @@ include ./Version
 ifeq ($(GNUSTEP_TARGET_OS),mingw32)
 SUBPROJECTS = \
 	GormLib \
+	GormPrefs \
 	GormObjCHeaderParser
 else
 SUBPROJECTS = \

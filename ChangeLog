@@ -1,3 +1,10 @@
+2005-03-26 15:02 Gregory John Casamento <greg_casamento@yahoo.com>
+
+	BRANCH: build_reorg_branch
+	* GNUmakefile: Add new framework to makefile.
+	* Resources: Removed pref gorms.
+	* GormLib: New framework.  Pref gorms moved here as resources.
+	
 2005-03-26 10:18 Gregory John Casamento <greg_casamento@yahoo.com>
 
 	* install-windows.sh: Installation script for windows.
