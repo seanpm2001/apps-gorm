@@ -28,19 +28,14 @@ ADDITIONAL_GUI_LIBS += \
 	-lGormObjCHeaderParser \
 	-lGormPrefs 
 
-ADDITIONAL_INCLUDE_DIRS += \
-	-IInterfaceBuilder \
-	-IGormObjCHeaderParser \
-	-IGormPrefs
-
 ifeq ($(GNUSTEP_TARGET_OS),mingw32)
 ADDITIONAL_LIB_DIRS += \
-	-LGormLib/$(GNUSTEP_OBJ_DIR) \
-	-LGormObjCHeaderParser/$(GNUSTEP_OBJ_DIR) \
-	-LGormPrefs/$(GNUSTEP_OBJ_DIR)
+	-L../GormLib/$(GNUSTEP_OBJ_DIR) \
+	-L../GormObjCHeaderParser/$(GNUSTEP_OBJ_DIR) \
+	-L../GormPrefs/$(GNUSTEP_OBJ_DIR)
 else
 ADDITIONAL_LIB_DIRS += \
-	-LGormLib/$(GNUSTEP_OBJ_DIR) \
-	-LGormObjCHeaderParser/$(GNUSTEP_OBJ_DIR) \
-	-LGormPrefs/GormPrefs.framework/Versions/Current
+	-L../GormLib/$(GNUSTEP_OBJ_DIR) \
+	-L../GormObjCHeaderParser/$(GNUSTEP_OBJ_DIR) \
+	-L../GormPrefs/GormPrefs.framework/Versions/Current
 endif

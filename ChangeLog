@@ -1,3 +1,8 @@
+2005-03-29 02:24 Gregory John Casamento <greg_casamento@yahoo.com>
+
+	* GNUmakefile.postamble: Removed kludge for windows.
+	* GormCore/GNUmakefile.preamble: Fixed path.
+
 2005-03-29 01:50 Gregory John Casamento <greg_casamento@yahoo.com>
 
 	* GNUmakefile: Reorganized the build order so that GormCore is
