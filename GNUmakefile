@@ -37,9 +37,9 @@ include ./Version
 #
 SUBPROJECTS = \
 	GormObjCHeaderParser \
-	GormPrefs \
 	GormLib \
 	GormCore \
+	GormPrefs \
 	Palettes 
 
 #
