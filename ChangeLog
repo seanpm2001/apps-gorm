@@ -1,3 +1,8 @@
+2005-03-29 02:47 Gregory John Casamento <greg_casamento@yahoo.com>
+
+	* GormCore/GNUmakefile.preamble: Removed link to GormPrefs.
+	* GormCore/GormPrivate.m: Removed uneeded reference to GormPrefs.
+
 2005-03-29 02:24 Gregory John Casamento <greg_casamento@yahoo.com>
 
 	* GNUmakefile.postamble: Removed kludge for windows.
