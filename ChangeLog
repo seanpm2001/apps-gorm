@@ -1,3 +1,14 @@
+2005-03-29 01:24 Gregory John Casamento <greg_casamento@yahoo.com>
+
+        BRANCH: build_reorg_branch
+	* Palettes/0Menus/GNUmakefile.preamble
+	* Palettes/1Windows/GNUmakefile.preamble
+	* Palettes/2Controls/GNUmakefile.preamble
+	* Palettes/3Containers/GNUmakefile.preamble
+	* Palettes/4Data/GNUmakefile.preamble: Added lines to all
+	of these files to link the GormCore when the palette is built
+	on windows.
+
 2005-03-29 01:08 Gregory John Casamento <greg_casamento@yahoo.com>
 
 	BRANCH: build_reorg_branch
