@@ -1,3 +1,10 @@
+2005-03-29 01:08 Gregory John Casamento <greg_casamento@yahoo.com>
+
+	BRANCH: build_reorg_branch
+	* Gorm.m: Added new version here, after factoring out of 
+	GormCore.
+	* install-windows.sh: Removed.
+	
 2005-03-28 19:55 Gregory John Casamento <greg_casamento@yahoo.com>
 
 	BRANCH: build_reorg_branch
