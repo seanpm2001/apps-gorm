@@ -5,7 +5,7 @@ ifeq ($(GNUSTEP_TARGET_OS),mingw32)
 ADDITIONAL_LIB_DIRS += \
         -L../../GormLib/$(GNUSTEP_OBJ_DIR) \
         -L../../GormObjCHeaderParser/$(GNUSTEP_OBJ_DIR) \
-        -L../../GormPrefs/GormPrefs.framework/Versions/Current \
+        -L../../GormPrefs/$(GNUSTEP_OBJ_DIR) \
         -L../../GormCore/$(GNUSTEP_OBJ_DIR)
 
 ADDITIONAL_GUI_LIBS += -lGorm -lGormCore

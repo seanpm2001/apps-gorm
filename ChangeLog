@@ -1,3 +1,15 @@
+2005-03-29 01:40 Gregory John Casamento <greg_casamento@yahoo.com>
+
+	* GNUmakefile.preamble
+	* GormPrefs/GNUmakefile
+	* Palettes/0Menus/GNUmakefile.preamble
+	* Palettes/1Windows/GNUmakefile.preamble
+	* Palettes/2Controls/GNUmakefile.preamble
+	* Palettes/3Containers/GNUmakefile.preamble
+	* Palettes/4Data/GNUmakefile.preamble: Build and link
+	GormPrefs as a library on windows, for now, until the bug is
+	fixed.
+
 2005-03-29 01:24 Gregory John Casamento <greg_casamento@yahoo.com>
 
         BRANCH: build_reorg_branch

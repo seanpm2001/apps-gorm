@@ -23,8 +23,15 @@ GNUSTEP_INSTALLATION_DIR = $(GNUSTEP_SYSTEM_ROOT)
 #
 
 PACKAGE_NAME=GormPrefs
+
+ifeq ($(GNUSTEP_TARGET_OS),mingw32)
+LIBRARY_VAR=GORMPREFS
+LIBRARY_NAME=GormPrefs
+else
 FRAMEWORK_VAR=GORMPREFS
 FRAMEWORK_NAME=GormPrefs
+endif
+
 GormPrefs_HEADER_FILES_DIR=.
 GormPrefs_HEADER_FILES_INSTALL_DIR=/GormPrefs
 ADDITIONAL_INCLUDE_DIRS = -I..
@@ -90,5 +97,11 @@ HEADERS_INSTALL = $(GormPrefs_HEADER_FILES)
 
 -include GNUmakefile.preamble
 -include GNUmakefile.local
+
+ifeq ($(GNUSTEP_TARGET_OS),mingw32)
+include $(GNUSTEP_MAKEFILES)/library.make
+else
 include $(GNUSTEP_MAKEFILES)/framework.make
+endif
+
 -include GNUmakefile.postamble
