@@ -49,7 +49,7 @@ APP_NAME = Gorm
 Gorm_PRINCIPAL_CLASS=Gorm
 Gorm_APPLICATION_ICON=Gorm.tiff
 Gorm_RESOURCE_FILES = \
-	Resources/GormInfo.plist \
+	GormInfo.plist \
 	Resources/ClassInformation.plist \
 	Resources/VersionProfiles.plist \
 	Resources/Defaults.plist \

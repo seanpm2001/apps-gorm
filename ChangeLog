@@ -1,3 +1,10 @@
+2005-03-30 06:09 Gregory John Casamento <greg_casamento@yahoo.com>
+
+        BRANCH: build_reorg_branch
+	* GNUmakefile: Added GormInfo.plist back to the top level
+	dir
+	* Resources/GormInfo.plist: Removed from here.
+
 2005-03-29 21:42 Gregory John Casamento <greg_casamento@yahoo.com>
 
         BRANCH: build_reorg_branch
