@@ -111,7 +111,7 @@
 	}
       else
 	{
-	  GormPalettesManager *palettesManager = [(Gorm *)NSApp palettesManager];
+	  GormPalettesManager *palettesManager = [(id<Gorm>)NSApp palettesManager];
 
 	  // load the classes, initialize the custom class array and map..
 	  [self loadFromFile: path];

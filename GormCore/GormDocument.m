@@ -2106,7 +2106,7 @@ static NSImage  *fileImage = nil;
     {
       NSString *filename  = [oPanel filename];
       NSString *ext       = [filename pathExtension];
-      BOOL     uniqueName = [(Gorm *)NSApp documentNameIsUnique: filename];
+      BOOL     uniqueName = [(id<Gorm>)NSApp documentNameIsUnique: filename];
 
       if(uniqueName)
 	{
@@ -2902,7 +2902,7 @@ static NSImage  *fileImage = nil;
       id		obj;
 
       // stop all connection activities.
-      [(Gorm *)NSApp stopConnecting];
+      [(id<Gorm>)NSApp stopConnecting];
 
       enumerator = [nameTable objectEnumerator];
       if (flag == YES)
@@ -2962,7 +2962,7 @@ static NSImage  *fileImage = nil;
 
   NSDebugLog(@"setSelectionFromEditor %@", anEditor);
   ASSIGN(lastEditor, anEditor);
-  [(Gorm *)NSApp stopConnecting]; // cease any connection
+  [(id<Gorm>)NSApp stopConnecting]; // cease any connection
   if ([(NSObject *)anEditor respondsToSelector: @selector(window)])
     {
       [[anEditor window] makeKeyWindow];

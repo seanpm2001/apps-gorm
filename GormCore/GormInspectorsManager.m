@@ -723,7 +723,7 @@
 		  if ([con isKindOfClass: [NSNibControlConnector class]] == YES)
 		    {
 		      RELEASE(actions);
-		      actions = RETAIN([[NSApp classManager]
+		      actions = RETAIN([[(id<Gorm>)NSApp classManager]
 			allActionsForObject: [con destination]]);
 		      break;
 		    }
@@ -736,7 +736,7 @@
 	      if (con == nil) // && [actions containsObject: [currentConnector label]] == NO) 
 		{
 		  RELEASE(actions);
-		  actions = RETAIN([[NSApp classManager]
+		  actions = RETAIN([[(id<Gorm>)NSApp classManager]
 		    allActionsForObject: [NSApp connectDestination]]);
 		  if ([actions count] > 0)
 		    {
@@ -1146,7 +1146,7 @@ selectCellWithString: (NSString*)title
       [connectors addObjectsFromArray: array];
 
       RELEASE(outlets);
-      outlets = RETAIN([[NSApp classManager] allOutletsForObject: object]); 
+      outlets = RETAIN([[(id<Gorm>)NSApp classManager] allOutletsForObject: object]); 
       DESTROY(actions);
 
       [oldBrowser loadColumnZero];

@@ -1,3 +1,9 @@
+2005-03-28 19:55 Gregory John Casamento <greg_casamento@yahoo.com>
+
+	BRANCH: build_reorg_branch
+	* GormCore: New library (may become a framework)
+	* *.[hm]: Except for main.m, moved to GormCore.
+	
 2005-03-26 15:02 Gregory John Casamento <greg_casamento@yahoo.com>
 
 	BRANCH: build_reorg_branch

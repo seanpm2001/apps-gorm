@@ -39,6 +39,7 @@
 #include <GormCore/GormClassManager.h>
 #include <GormCore/GormPalettesManager.h>
 #include <GormCore/GormOutlineView.h>
+#include <GormCore/GormProtocol.h>
 
 extern NSString *GormLinkPboardType;
 extern NSString *GormToggleGuidelineNotification;
@@ -79,92 +80,6 @@ extern NSString *GormResizeCellNotification;
 - (NSString*) inspectorClassName;
 - (NSString*) connectInspectorClassName;
 - (NSString*) sizeInspectorClassName;
-@end
-
-@interface NSApplication (Gorm)
-- (GormClassManager*) classManager;
-@end
-
-@interface Gorm : NSApplication <IB>
-{
-  id			infoPanel;
-  id                    preferencesController;
-  GormClassManager	*classManager;
-  GormInspectorsManager	*inspectorsManager;
-  GormPalettesManager	*palettesManager;
-  id<IBSelectionOwners>	selectionOwner;
-  NSMutableArray	*documents;
-  BOOL			isConnecting;
-  BOOL			isTesting;
-  id			testContainer;
-  id                    gormMenu;
-  NSMenu		*mainMenu; // saves the main menu when testing...
-  NSMenu                *servicesMenu; // saves the services menu when testing...
-  NSMenu                *classMenu; // so we can set it for the class view
-  NSMenuItem            *guideLineMenuItem; 
-  NSDictionary		*menuLocations;
-  NSImage		*linkImage;
-  NSImage		*sourceImage;
-  NSImage		*targetImage;
-  id			connectSource;
-  NSWindow		*connectSWindow;
-  NSRect		connectSRect;
-  id			connectDestination;
-  NSWindow		*connectDWindow;
-  NSRect		connectDRect;
-  NSPoint               cascadePoint;
-  NSMutableArray        *testingWindows;
-}
-- (id<IBDocuments>) activeDocument;
-- (id) connectSource;
-- (id) connectDestination;
-- (void) displayConnectionBetween: (id)source and: (id)destination;
-- (void) handleNotification: (NSNotification*)aNotification;
-- (GormInspectorsManager*) inspectorsManager;
-- (BOOL) isConnecting;
-- (GormPalettesManager*) palettesManager;
-- (void) stopConnecting;
-
-- (void) preferencesPanel: (id) sender;
-
-- (void) copy: (id)sender;
-- (void) cut: (id)sender;
-- (void) paste: (id)sender;
-- (void) delete: (id)sender;
-- (void) selectAllItems: (id)sender;
-- (void) setName: (id)sender;
-
-- (id) endTesting: (id)sender;
-
-- (void) inspector: (id) sender;
-- (void) palettes: (id) sender;
-- (void) loadPalette: (id) sender;
-
-- (void) newGormDocument: (id) sender;
-- (void) open: (id)sender;
-- (void) revertToSaved: (id)sender;
-- (void) save: (id)sender;
-- (void) saveAll: (id)sender;
-- (void) saveAs: (id)sender;
-- (void) testInterface: (id)sender;
-
-// sound & images.
-- (void) loadSound: (id) sender;
-- (void) loadImage: (id) sender;
-
-// grouping
-- (void) groupSelectionInSplitView: (id)sender;
-- (void) groupSelectionInBox: (id)sender;
-- (void) groupSelectionInScrollView: (id)sender;
-- (void) ungroup: (id)sender;
-
-// added for classes support
-- (void) createSubclass: (id)sender;
-- (void) instantiateClass: (id)sender;
-- (NSMenu*) classMenu;
-
-// utility...
-- (BOOL) documentNameIsUnique: (NSString *)filename;
 @end
 
 @interface GormClassEditor : GormOutlineView <IBSelectionOwners>
@@ -312,6 +227,10 @@ extern NSString *GormResizeCellNotification;
 @interface NSObject (GormAdditions)
 - (id) allocSubstitute;
 - (NSImage *) imageForViewer;
+@end
+
+@interface NSApplication (GormAdditions)
+- (BOOL) illegalClassSubstitution;
 @end
 
 /*

@@ -137,6 +137,7 @@ Gorm_RESOURCE_FILES = \
 Gorm_HEADERS = 
 
 Gorm_OBJC_FILES = \
+	Gorm.m \
 	main.m 
 
 -include GNUmakefile.preamble

@@ -210,7 +210,7 @@ GormCore_OBJC_FILES = \
 	NSColorWell+GormExtensions.m \
 	NSFontManager+GormExtensions.m \
 	NSView+GormExtensions.m \
-        Gorm.m
+        GormPrivate.m
 
 -include GNUmakefile.preamble
 -include GNUmakefile.local

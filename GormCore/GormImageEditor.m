@@ -78,7 +78,7 @@ static NSMapTable *docMap = 0;
   NSMutableArray    *list = [NSMutableArray array];
   NSEnumerator      *en;
   id                obj;
-  GormPalettesManager *palettesManager = [(Gorm *)NSApp palettesManager];
+  GormPalettesManager *palettesManager = [(id<Gorm>)NSApp palettesManager];
      
   // add all of the system objects...
   [list addObjectsFromArray: systemImagesList()];

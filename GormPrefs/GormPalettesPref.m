@@ -65,7 +65,7 @@ objectValueForTableColumn: (NSTableColumn *)tc
 
 - (void) addAction: (id)sender
 {
-  [[(Gorm *)NSApp palettesManager] openPalette: self];
+  [[(id<Gorm>)NSApp palettesManager] openPalette: self];
   [table reloadData];
 }
 

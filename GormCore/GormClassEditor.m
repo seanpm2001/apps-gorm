@@ -62,7 +62,7 @@ NSString *GormClassPboardType = @"GormClassPboardType";
       [self setAttributeOffset: 30];
       [self setRowHeight: 18];
       [self registerForDraggedTypes: [NSArray arrayWithObjects: NSFilenamesPboardType, nil]];
-      [self setMenu: [(Gorm*)NSApp classMenu]]; 
+      [self setMenu: [(id<Gorm>)NSApp classMenu]]; 
       [self setBackgroundColor: salmonColor ];
 
       // add the table columns...

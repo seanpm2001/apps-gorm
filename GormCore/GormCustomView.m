@@ -130,7 +130,7 @@
 - (Class) _bestPossibleSuperClass
 {
   Class cls = [NSView class];
-  GormClassManager *classManager = [(Gorm *)NSApp classManager];
+  GormClassManager *classManager = [(id<Gorm>)NSApp classManager];
 
   if([classManager isSuperclass: @"NSView" linkedToClass: theClass])
     {

@@ -32,6 +32,7 @@
 #include "GormDocument.h"
 #include "GormFunctions.h"
 #include "GormPrivate.h"
+#include "GormProtocol.h"
 #include <InterfaceBuilder/IBApplicationAdditions.h>
 
 NSNotificationCenter *nc = nil;
@@ -83,7 +84,7 @@ NSNotificationCenter *nc = nil;
 @implementation GormOutletDataSource 
 - (int) numberOfRowsInTableView: (NSTableView *)tv
 {
-  NSArray *list = [[(Gorm *)NSApp classManager] allOutletsForClassNamed: [inspector _currentClass]];
+  NSArray *list = [[(id<Gorm>)NSApp classManager] allOutletsForClassNamed: [inspector _currentClass]];
   return [list count];
 }
 
@@ -91,7 +92,7 @@ NSNotificationCenter *nc = nil;
 objectValueForTableColumn: (NSTableColumn *)tc
 	              row: (int)rowIndex
 {
-  NSArray *list = [[(Gorm *)NSApp classManager] allOutletsForClassNamed: [inspector _currentClass]];
+  NSArray *list = [[(id<Gorm>)NSApp classManager] allOutletsForClassNamed: [inspector _currentClass]];
   id value = nil;
   if([list count] > 0)
     {
@@ -105,7 +106,7 @@ objectValueForTableColumn: (NSTableColumn *)tc
     forTableColumn: (NSTableColumn *)tc
 	       row: (int)rowIndex
 {
-  id classManager = [(Gorm *)NSApp classManager];
+  id classManager = [(id<Gorm>)NSApp classManager];
   NSString *currentClass = [inspector _currentClass];
   NSArray *list = [classManager allOutletsForClassNamed: currentClass];
   NSString *name = [list objectAtIndex: rowIndex];
@@ -143,7 +144,7 @@ objectValueForTableColumn: (NSTableColumn *)tc
 @implementation GormActionDataSource
 - (int) numberOfRowsInTableView: (NSTableView *)tv
 {
-  NSArray *list = [[(Gorm *)NSApp classManager] allActionsForClassNamed: [inspector _currentClass]];
+  NSArray *list = [[(id<Gorm>)NSApp classManager] allActionsForClassNamed: [inspector _currentClass]];
   return [list count];
 }
 
@@ -151,7 +152,7 @@ objectValueForTableColumn: (NSTableColumn *)tc
 objectValueForTableColumn: (NSTableColumn *)tc
 	              row: (int)rowIndex
 {
-  NSArray *list = [[(Gorm *)NSApp classManager] allActionsForClassNamed: [inspector _currentClass]];
+  NSArray *list = [[(id<Gorm>)NSApp classManager] allActionsForClassNamed: [inspector _currentClass]];
   return [list objectAtIndex: rowIndex];
 }
 
@@ -160,7 +161,7 @@ objectValueForTableColumn: (NSTableColumn *)tc
     forTableColumn: (NSTableColumn *)tc
 	       row: (int)rowIndex
 {
-  id classManager = [(Gorm *)NSApp classManager];
+  id classManager = [(id<Gorm>)NSApp classManager];
   NSString *currentClass = [inspector _currentClass];
   NSArray *list = [classManager allActionsForClassNamed: currentClass];
   NSString *name = [list objectAtIndex: rowIndex];
@@ -198,7 +199,7 @@ objectValueForTableColumn: (NSTableColumn *)tc
 @implementation GormClassesDataSource 
 - (int) numberOfRowsInTableView: (NSTableView *)tv
 {
-  NSArray *list = [[(Gorm *)NSApp classManager] allClassNames];
+  NSArray *list = [[(id<Gorm>)NSApp classManager] allClassNames];
   return [list count];
 }
 
@@ -206,7 +207,7 @@ objectValueForTableColumn: (NSTableColumn *)tc
 objectValueForTableColumn: (NSTableColumn *)tc
 	              row: (int)rowIndex
 {
-  NSArray *list = [[(Gorm *)NSApp classManager] allClassNames];
+  NSArray *list = [[(id<Gorm>)NSApp classManager] allClassNames];
   id value = nil;
   if([list count] > 0)
     {
@@ -601,7 +602,7 @@ objectValueForTableColumn: (NSTableColumn *)tc
   NSTabViewItem *item = nil;
 
   [super setObject: anObject];
-  ASSIGN(classManager, [(Gorm *)NSApp classManager]);
+  ASSIGN(classManager, [(id<Gorm>)NSApp classManager]);
   ASSIGN(currentClass, [object className]);
 
   outletsCount = [[classManager allOutletsForClassNamed: currentClass] count];

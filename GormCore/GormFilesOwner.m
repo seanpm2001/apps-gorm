@@ -157,13 +157,13 @@
 	addObserver: self
 	selector: @selector(_classAdded:)
 	name: GormDidAddClassNotification
-	object: [NSApp classManager]];
+	object: [(id<Gorm>)NSApp classManager]];
 
       [[NSNotificationCenter defaultCenter]
 	addObserver: self
 	selector: @selector(_classDeleted:)
 	name: GormDidDeleteClassNotification
-	object: [NSApp classManager]];
+	object: [(id<Gorm>)NSApp classManager]];
     }
   return self;
 }
@@ -173,11 +173,11 @@
   // filter the classes to view only when a custom view is selected.
   if([anObject isKindOfClass: [GormCustomView class]])
     {
-      ASSIGN(classes, AUTORELEASE([[[NSApp classManager] allSubclassesOf: @"NSView"] mutableCopy]));
+      ASSIGN(classes, AUTORELEASE([[[(id<Gorm>)NSApp classManager] allSubclassesOf: @"NSView"] mutableCopy]));
     }
   else
     {
-      ASSIGN(classes, AUTORELEASE([[[NSApp classManager] allClassNames] mutableCopy]));
+      ASSIGN(classes, AUTORELEASE([[[(id<Gorm>)NSApp classManager] allClassNames] mutableCopy]));
     }
 
   // remove the first responder, since we don't want the user to choose this.

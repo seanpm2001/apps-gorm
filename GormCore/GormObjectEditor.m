@@ -531,7 +531,7 @@ static NSMapTable	*docMap = 0;
 - (void) resetObject: (id)anObject
 {
   NSString		*name = [document nameForObject: anObject];
-  GormInspectorsManager	*mgr = [(Gorm*)NSApp inspectorsManager];
+  GormInspectorsManager	*mgr = [(id<Gorm>)NSApp inspectorsManager];
 
   if ([name isEqual: @"NSOwner"] == YES)
     {

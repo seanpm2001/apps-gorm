@@ -24,6 +24,7 @@
 
 #include <Foundation/Foundation.h>
 #include <AppKit/AppKit.h>
+#include <InterfaceBuilder/InterfaceBuilder.h>
 #include <GormCore/GormPrivate.h>
 #include <GormCore/GormViewEditor.h>
 #include <GormCore/NSColorWell+GormExtensions.h>
@@ -623,7 +624,7 @@ extern NSArray *predefinedDateFormats, *predefinedNumberFormats;
   if (control == detachButton)
     {
       [[object cell] setFormatter: nil];
-      [[(Gorm *)NSApp activeDocument] setSelectionFromEditor: nil];
+      [[(id<IB>)NSApp activeDocument] setSelectionFromEditor: nil];
     }
   else
     {
@@ -824,7 +825,7 @@ extern NSArray *predefinedDateFormats, *predefinedNumberFormats;
   if (control == detachButton)
     { 
       [cell setFormatter: nil];
-      [[(Gorm *)NSApp activeDocument] setSelectionFromEditor: nil];
+      [[(id<IB>)NSApp activeDocument] setSelectionFromEditor: nil];
     }
   else
     {
