@@ -120,19 +120,31 @@ Gorm_RESOURCE_FILES = \
 	Images/GormView.tiff \
 	Images/LeftArr.tiff \
 	Images/RightArr.tiff \
-	Images/GormTesting.tiff \
-	Resources/GormClassPanel.gorm \
-	Resources/GormViewSizeInspector.gorm \
-	Resources/GormCustomClassInspector.gorm \
-	Resources/GormSoundInspector.gorm \
-	Resources/GormImageInspector.gorm \
-	Resources/GormScrollViewAttributesInspector.gorm \
-	Resources/GormNSSplitViewInspector.gorm \
-	Resources/GormClassInspector.gorm \
-	Resources/GormFontView.gorm \
-	Resources/GormSetName.gorm \
-	Resources/GormDocument.gorm \
-	Resources/Gorm.gorm
+	Images/GormTesting.tiff 
+
+Gorm_LOCALIZED_RESOURCE_FILES = \
+	GormClassInspector.gorm \
+	GormClassPanel.gorm \
+	GormCustomClassInspector.gorm \
+	GormDocument.gorm \
+	GormFontView.gorm \
+	Gorm.gorm \
+	GormImageInspector.gorm \
+	GormNSSplitViewInspector.gorm \
+	GormPrefColors.gorm \
+	GormPreferences.gorm \
+	GormPrefGeneral.gorm \
+	GormPrefGuideline.gorm \
+	GormPrefHeaders.gorm \
+	GormPrefPalettes.gorm \
+	GormScrollViewAttributesInspector.gorm \
+	GormSetName.gorm \
+	GormShelfPref.gorm \
+	GormSoundInspector.gorm \
+	GormViewSizeInspector.gorm
+
+Gorm_LANGUAGES = \
+	English
 
 Gorm_HEADERS = 
 

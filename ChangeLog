@@ -1,25 +1,46 @@
+2005-03-29 21:42 Gregory John Casamento <greg_casamento@yahoo.com>
+
+        BRANCH: build_reorg_branch
+	* GNUmakefile
+	* GNUmakefile.preamble
+	* GormPrefs/GNUmakefile
+	* GormPrefs/GNUmakefile.preamble
+	* Palettes/0Menus/GNUmakefile.preamble
+	* Palettes/1Windows/GNUmakefile.preamble
+	* Palettes/2Controls/GNUmakefile.preamble
+	* Palettes/3Containers/GNUmakefile.preamble
+	* Palettes/4Data/GNUmakefile.preamble: Removed GormPrefs framework,
+	it is now a library.
+	* Resources: Moved all .gorm files from here..
+	* English.lproj: To here.
+	
 2005-03-29  Richard Frith-Macdonald <rfm@gnu.org>
 
+        BRANCH: build_reorg_branch
 	* GormPalettesManager.m: Fix some coordinate translation bugs when
 	the gui is decorating windows itsself.
 
 2005-03-29 02:47 Gregory John Casamento <greg_casamento@yahoo.com>
 
+        BRANCH: build_reorg_branch
 	* GormCore/GNUmakefile.preamble: Removed link to GormPrefs.
 	* GormCore/GormPrivate.m: Removed uneeded reference to GormPrefs.
 
 2005-03-29 02:24 Gregory John Casamento <greg_casamento@yahoo.com>
 
+        BRANCH: build_reorg_branch
 	* GNUmakefile.postamble: Removed kludge for windows.
 	* GormCore/GNUmakefile.preamble: Fixed path.
 
 2005-03-29 01:50 Gregory John Casamento <greg_casamento@yahoo.com>
 
+        BRANCH: build_reorg_branch
 	* GNUmakefile: Reorganized the build order so that GormCore is
 	built before GormPrefs.
 
 2005-03-29 01:40 Gregory John Casamento <greg_casamento@yahoo.com>
 
+	BRANCH: build_reorg_branch
 	* GNUmakefile.preamble
 	* GormPrefs/GNUmakefile
 	* Palettes/0Menus/GNUmakefile.preamble
