@@ -1,3 +1,14 @@
+2005-06-25 09:04 Gregory John Casamento <greg_casamento@yahoo.com>
+
+	* GormCore/GormDocument.m: Change to use isInInterfaceBuilder method
+	on NSObject instead of GSClassSwapper.
+	* GormCore/GormPrivate.h: Declare isInInterfaceBuilder method on
+	NSObject instead of GSClassSwapper.
+	* GormCore/GormPrivate.m: Change category implementation for
+	NSObject.
+	* Gorm.m: Change to use isInInterfaceBuilder method on NSObject
+	* Version: Update version number
+
 2005-06-20 20:11 Gregory John Casamento <greg_casamento@yahoo.com>
 
 	* GNUmakefile.preamble: Remove dependency on GL.

@@ -218,7 +218,7 @@ static BOOL _illegalClassSubstitution = NO;
 @end
 
 // custom class additions...
-@implementation GSClassSwapper (GormCustomClassAdditions)
+@implementation NSObject (GormCustomClassAdditions)
 + (void) setIsInInterfaceBuilder: (BOOL)flag
 {
   _isInInterfaceBuilder = flag;
@@ -238,82 +238,5 @@ static BOOL _illegalClassSubstitution = NO;
   [editor registerForDraggedTypes: allTypes];
 }
 @end
-
-// these are temporary until the deprecated templates are removed...
-////////////////////////////////////////////////////////
-// DEPRECATED TEMPLATES                               //
-////////////////////////////////////////////////////////
-@interface NSWindowTemplate (GormCustomClassAdditions)
-- (BOOL) isInInterfaceBuilder;
-@end
-@implementation NSWindowTemplate (GormCustomClassAdditions)
-- (BOOL) isInInterfaceBuilder
-{
-  return YES;
-}
-@end
-
-@interface NSViewTemplate (GormCustomClassAdditions)
-- (BOOL) isInInterfaceBuilder;
-@end
-@implementation NSViewTemplate (GormCustomClassAdditions)
-- (BOOL) isInInterfaceBuilder
-{
-  return YES;
-}
-@end
-
-@interface NSTextTemplate (GormCustomClassAdditions)
-- (BOOL) isInInterfaceBuilder;
-@end
-@implementation NSTextTemplate (GormCustomClassAdditions)
-- (BOOL) isInInterfaceBuilder
-{
-  return YES;
-}
-@end
-
-@interface NSTextViewTemplate (GormCustomClassAdditions)
-- (BOOL) isInInterfaceBuilder;
-@end
-@implementation NSTextViewTemplate (GormCustomClassAdditions)
-- (BOOL) isInInterfaceBuilder
-{
-  return YES;
-}
-@end
-
-@interface NSMenuTemplate (GormCustomClassAdditions)
-- (BOOL) isInInterfaceBuilder;
-@end
-@implementation NSMenuTemplate (GormCustomClassAdditions)
-- (BOOL) isInInterfaceBuilder
-{
-  return YES;
-}
-@end
-
-@interface NSControlTemplate (GormCustomClassAdditions)
-- (BOOL) isInInterfaceBuilder;
-@end
-@implementation NSControlTemplate (GormCustomClassAdditions)
-- (BOOL) isInInterfaceBuilder
-{
-  return YES;
-}
-@end
-
-@interface NSButtonTemplate (GormCustomClassAdditions)
-- (BOOL) isInInterfaceBuilder;
-@end
-@implementation NSButtonTemplate (GormCustomClassAdditions)
-- (BOOL) isInInterfaceBuilder
-{
-  return YES;
-}
-@end
-////////////////////////////////////////////////////////
-// END OF DEPRECATED TEMPLATES                        //
-////////////////////////////////////////////////////////
 
 

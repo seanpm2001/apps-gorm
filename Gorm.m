@@ -597,12 +597,12 @@
 	    }
 
 	  // do not allow custom classes during testing.
-	  [GSClassSwapper setIsInInterfaceBuilder: YES]; 
+	  [NSObject setIsInInterfaceBuilder: YES]; 
 	  [archiver encodeRootObject: activeDoc];
 	  data = RETAIN([archiver archiverData]); // Released below... 
 	  [activeDoc endArchiving];
 	  RELEASE(archiver);
-	  [GSClassSwapper setIsInInterfaceBuilder: NO]; 
+	  [NSObject setIsInInterfaceBuilder: NO]; 
 	  
 	  // signal the start of testing...
 	  [notifCenter postNotificationName: IBWillBeginTestingInterfaceNotification

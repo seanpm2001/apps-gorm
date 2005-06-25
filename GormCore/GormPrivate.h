@@ -56,7 +56,7 @@ extern NSString *GormResizeCellNotification;
 - (NSString*) className;
 @end
 
-@interface GSClassSwapper (GormCustomClassAdditions)
+@interface NSObject (GormCustomClassAdditions)
 + (void) setIsInInterfaceBuilder: (BOOL)flag;
 - (BOOL) isInInterfaceBuilder;
 @end
