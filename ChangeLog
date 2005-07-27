@@ -1,3 +1,33 @@
+2005-07-27 02:10 Gregory John Casamento <greg_casamento@yahoo.com>
+
+	* GormPrefs/GormGeneralPref.m: Removed extra calls to synchronize.
+	* GormPrefs/GormHeadersPref.m: ditto
+
+2005-07-27 01:47 Gregory John Casamento <greg_casamento@yahoo.com>
+
+	* GormCore/GormDocument.h: Added documentation.
+	* GormCore/GormDocument.m: Removed commented code.  Corrected 
+	problem in [GormDocument instantiateClass:] when switching to
+	the objects view.
+	* GormCore/GormWindowEditor.h: Added documentation.
+
+2005-07-26 22:56 Gregory John Casamento <greg_casamento@yahoo.com>
+
+	* GormCore/GNUmakefile: Added new GormWindowEditor.h file.
+	* GormCore/GormWindowEditor.m: Reorganized methods, extracted .h
+	* GormCore/GormWindowEditor.h: New file.
+	* GormCore/NSCell+GormAdditions.h
+	* GormCore/NSColorWell+GormExtensions.h
+	* GormCore/NSColorWell+GormExtensions.m
+	* GormCore/NSFontManager+GormExtensions.h
+	* GormCore/NSFontManager+GormExtensions.m
+	* GormCore/NSView+GormExtensions.h: Added documentation.
+
+2005-07-26 21:02 Gregory John Casamento <greg_casamento@yahoo.com>
+
+	* Palettes/2Controls/GormNSTextFieldInspector.gorm: Correct
+	resize attributes.
+
 2005-07-25 23:26 Gregory John Casamento <greg_casamento@yahoo.com>
 
 	* GormCore/GormClassEditor.m: [GormClassEditor selectClass:editClass:]
