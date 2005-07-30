@@ -1,3 +1,25 @@
+2005-07-30  Fabien VALLON  <fabien@sonappart.net>
+
+	* Palettes/1Window/GormWindowAttributesInspector.{m,h} : new files.
+         use ok: revert: methods, remove controls & options Matrix, 
+	 & replace it by a set of switch buttons. Clean up  & comments
+	* Palettes/1Window/GormWindowSizeInspector.{m,h} :new files.
+         use ok: revert: methods. Clean up  & comments
+	* Palettes/1Window/main.m : remove GormWindowSizeInspector,
+	GormWindowAttributesInspector classes and move IBObjectAdditions 
+	categories into GormWindowAttributesInspector and GormSizeInspector.
+	* Palettes/1Window/GormNSWindowInspector.gorm: remove controls and 
+	options matrix, & replace it by a set of switch buttons.
+	* Palettes/0Menus/GormMenuAttributesInspector.{m,h} : new files.
+         use ok: revert: methods, replace menuType matrix by a matrix of Radio 
+	 buttons.Clean up and comments.
+	* Palettes/0Menus/GormMenuItemAttributesInspector.m: new files.
+         use ok: revert: methods, Clean up and comments.
+	* Palettes/0Menus/MenuInspectors.m : removed
+	* Palettes/0Menus/GormMenuAttributesInspector.gorm : improve ui,
+	use a matrix of radioButtonCell for menu type
+	* Palettes/0Menus/GormMenuEditor.m : rename IBObjectAdditions category
+		
 2005-07-28 00:04 Gregory John Casamento <greg_casamento@yahoo.com>
 
 	* GormCore/GormImage.h: Added documentation.
