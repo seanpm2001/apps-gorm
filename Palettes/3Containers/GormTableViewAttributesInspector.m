@@ -45,6 +45,9 @@
 #include <AppKit/NSNibLoading.h>
 
 
+/*
+  IBObjectAdditions category 
+*/
 
 @implementation	NSTableView (IBObjectAdditions)
 - (NSString*) inspectorClassName
@@ -72,6 +75,7 @@
   return self;
 }
 
+/* Commit changes that the user makes in the Attributes Inspector */
 - (void) ok: (id)sender
 {
   BOOL flag;
@@ -80,7 +84,8 @@
 
   scrollView = [[object superview] superview];
   isScrollView = [ scrollView isKindOfClass: [NSScrollView class]];
-
+  
+  /* Selection */
   if ( sender == multipleSelectionSwitch ) 
     {
       [object setGormAllowsMultipleSelection:[multipleSelectionSwitch state]];
@@ -93,23 +98,23 @@
     {
       [object setGormAllowsColumnSelection: [columnSelectionSwitch state]];
     }
+  /* scrollers */
   else if ( (sender == verticalScrollerSwitch) && isScrollView)
     {
       flag = ([sender state] == NSOnState) ? YES : NO;
       [scrollView setHasVerticalScroller: flag];
     }
- 
-  else if ( (sender == horizontalScrollerSwitch) && isScrollView)
+   else if ( (sender == horizontalScrollerSwitch) && isScrollView)
     {
       flag = ([sender state] == NSOnState) ? YES : NO;
       [scrollView setHasHorizontalScroller: flag];
     } 
-
+  /* border */
   else if ( (sender == borderMatrix) && isScrollView)
     {
       [scrollView setBorderType: [[sender selectedCell] tag]];
     }
-  
+  /* dimension */
   else if (sender == rowsHeightForm)
     {
       int numCols = [object numberOfColumns];
@@ -166,21 +171,24 @@
     {
       [object setGormAllowsColumnReordering:[reorderingSwitch state]];
     }
+  /* tag */
   else if( sender == tagForm )
     {
       [object setTag:[[tagForm cellAtIndex:0] intValue]];
     }
+  /* background color */
   else if( sender == backgroundColor )
     {
       [object setBackgroundColor: [backgroundColor color]];
     }
 
+#warning always needed ? 
   [scrollView setNeedsDisplay: YES];
 
   [super ok:sender];
 }
 
-
+/* Sync from object ( NSTableView and its scollView ) changes to the inspector   */
 - (void) revert: (id) sender
 {
   BOOL isScrollView;
@@ -193,13 +201,15 @@
 
   isScrollView = [ scrollView isKindOfClass: [NSScrollView class]];
 
-
+  /* selection */
   [multipleSelectionSwitch setState: [object gormAllowsMultipleSelection]];
   [emptySelectionSwith setState:[object gormAllowsEmptySelection]];
   [columnSelectionSwitch setState:[object gormAllowsColumnSelection]];
 
+  
   if (isScrollView)
     {
+      /* scrollers */
       [verticalScrollerSwitch setEnabled: YES];
       [verticalScrollerSwitch setState: 
 				([scrollView hasVerticalScroller]) ? NSOnState : NSOffState];
@@ -208,6 +218,7 @@
       [horizontalScrollerSwitch setState: 
 				  ([scrollView hasHorizontalScroller]) ? NSOnState : NSOffState];
       
+      /* border */
       [borderMatrix setEnabled: YES];
       [borderMatrix selectCellWithTag: [scrollView borderType]];
     }
@@ -218,20 +229,24 @@
       [borderMatrix setEnabled: NO];   
     }
 
+  /* dimension */
   [[rowsHeightForm cellAtIndex: 0] setIntValue: [object rowHeight] ];
   [[rowsHeightForm cellAtIndex: 1] setIntValue: [object numberOfColumns]];
 
+  /* options */
   [drawgridSwitch setState:[object drawsGrid]];
   [resizingSwitch setState:[object gormAllowsColumnResizing]];
   [reorderingSwitch setState:[object gormAllowsColumnReordering]];
 
+  /* tag */
   [[tagForm cellAtIndex:0] setIntValue:[object tag]];
 
-  // set the background color into the inspector...
+  /* background color */
   [backgroundColor setColorWithoutAction: [object backgroundColor]];
   
   [super revert:sender];
 }
+
 
 /* delegate for tag and Forms */
 -(void) controlTextDidChange:(NSNotification *)aNotification

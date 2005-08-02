@@ -39,6 +39,7 @@ PALETTE_NAME = 3Containers
 	GormBrowserAttributesInspector.m\
 	GormTabViewAttributesInspector.m\
 	GormTableColumnAttributesInspector.m\
+	GormTableColumnSizeInspector.m\
 	GormTableViewAttributesInspector.m\
 
 

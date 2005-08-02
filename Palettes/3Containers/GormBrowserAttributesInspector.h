@@ -42,12 +42,14 @@
 
 @interface GormBrowserAttributesInspector : IBInspector
 {
+  /* options */
   NSButton *branchSelectionSwitch;
   NSButton *displayTitlesSwitch;
   NSButton *emptySelectionSwitch;
   NSButton *multipleSelectionSwitch;
   NSButton *horizontalScrollerSwitch;
   NSButton *separateColumnsSwitch;
+
   NSForm *tagForm;
   NSTextField *minColumnWidthField;
 }

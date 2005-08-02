@@ -45,7 +45,6 @@
 /*
   IBObjectAdditions category
 */
-
 @implementation NSTableColumn (IBObjectAdditions)
 - (NSString *) inspectorClassName
 {
@@ -71,103 +70,41 @@
   return self;
 }
 
-#warning check this ? 
 - (void) awakeFromNib
 {
   [cellTable setDoubleAction: @selector(ok:)];
 }
 
-
-- (void) revert:(id) sender
-{
-  NSArray *list;
-  NSString *cellClassName;
-  int index;
-
-  if ( object == nil ) 
-    return;
-
-  list = [[(id<Gorm>)NSApp classManager] allSubclassesOf: @"NSCell"];
-  cellClassName = [self _getCellClassName];
-  index =  [list indexOfObject: cellClassName];
-
-  if(index != NSNotFound && index != -1)
-    {
-      [cellTable selectRow: index byExtendingSelection: NO];
-      [cellTable scrollRowToVisible: index];
-    }
-  
-  switch ([[object headerCell] alignment])
-    {
-    case NSLeftTextAlignment:
-      [titleAlignmentMatrix selectCellAtRow: 0 column: 0];
-      break;
-    case NSCenterTextAlignment:
-      [titleAlignmentMatrix selectCellAtRow: 0 column: 1];
-      break;
-    case NSRightTextAlignment:
-      [titleAlignmentMatrix selectCellAtRow: 0 column: 2];
-      break;
-    default:
-      NSLog(@"Unhandled alignment value...");
-      break;
-    }
-
-  switch ([[object dataCell] alignment])
-    {
-    case NSLeftTextAlignment:
-      [contentsAlignmentMatrix selectCellAtRow: 0 column: 0];
-      break;
-    case NSCenterTextAlignment:
-      [contentsAlignmentMatrix selectCellAtRow: 0 column: 1];
-      break;
-    case NSRightTextAlignment:
-      [contentsAlignmentMatrix selectCellAtRow: 0 column: 2];
-      break;
-    default:
-      NSLog(@"Unhandled alignment value...");
-      break;
-    }
-
-  [identifierTextField setStringValue: [(NSTableColumn *)object identifier]];
-
-  if ([object isResizable])
-    [resizableSwitch setState: NSOnState];
-  else
-    [resizableSwitch setState: NSOffState];
-
-  if ([object isEditable])
-    [editableSwitch setState: NSOnState];
-  else
-    [editableSwitch setState: NSOffState];
-
-  [super revert:sender];
-}
-
+/* Commit changes that the user makes in the Attributes Inspector */
 - (void) ok: (id) sender
 {
+  /* title Alignment */
   if (sender == titleAlignmentMatrix)
     {
-      if ([[sender cellAtRow: 0 column: 0] state] == NSOnState)
-	{
-	  [[object headerCell] setAlignment: NSLeftTextAlignment];
-	}
-      else if ([[sender cellAtRow: 0 column: 1] state] == NSOnState)
-	{
-	  [[object headerCell] setAlignment: NSCenterTextAlignment];
-	}
-      else if ([[sender cellAtRow: 0 column: 2] state] == NSOnState)
-	{
-	  [[object headerCell] setAlignment: NSRightTextAlignment];
-	}
+       if ([[sender cellAtRow: 0 column: 0] state] == NSOnState)
+ 	{
+ 	  [[object headerCell] setAlignment: NSLeftTextAlignment];
+ 	}
+       else if ([[sender cellAtRow: 0 column: 1] state] == NSOnState)
+ 	{
+ 	  [[object headerCell] setAlignment: NSCenterTextAlignment];
+ 	}
+       else if ([[sender cellAtRow: 0 column: 2] state] == NSOnState)
+ 	{
+ 	  [[object headerCell] setAlignment: NSRightTextAlignment];
+ 	}
+#warning TODO use tags 
+       // [[object headerCell] setAlignment: [[titleAlignmentMatrix selectedRow] tag]];
 
       if ([[object tableView] headerView] != nil)
 	{
 	  [[[object tableView] headerView] setNeedsDisplay: YES];
 	}
     }
+  /* contents Alignment */
   else if (sender == contentsAlignmentMatrix)
     {
+#warning TODO use tags 
       if ([[sender cellAtRow: 0 column: 0] state] == NSOnState)
 	{
 	  [[object dataCell] setAlignment: NSLeftTextAlignment];
@@ -182,11 +119,14 @@
 	}
       [[object tableView] setNeedsDisplay: YES];
     }
+
+  /* Identifier */
   else if (sender == identifierTextField)
     {
       [object setIdentifier:
 		[identifierTextField stringValue]];
     }
+  /* Options */
   else if (sender == editableSwitch)
     {
       [object setEditable:
@@ -197,6 +137,7 @@
       [object setResizable:
 		([resizableSwitch state] == NSOnState)];
     }
+  /* set Button */
   else if (sender == setButton || sender == cellTable)
     {
       id classManager = [(id<Gorm>)NSApp classManager];
@@ -240,15 +181,89 @@
 
       RELEASE(cell);
     }
+  /* default button */
   else if (sender == defaultButton)
     {
       [object setDataCell: [[NSTextFieldCell alloc] init]];
       [[object tableView] setNeedsDisplay: YES];
       [self setObject: [self object]]; // reset...
     }
+
+  [super ok:sender];
+}
+
+/* Sync from object ( NSTableColumn ) changes to the inspector   */
+- (void) revert:(id) sender
+{
+  NSArray *list;
+  NSString *cellClassName;
+  int index;
+
+  if ( object == nil ) 
+    return;
+
+  list = [[(id<Gorm>)NSApp classManager] allSubclassesOf: @"NSCell"];
+  cellClassName = [self _getCellClassName];
+  index =  [list indexOfObject: cellClassName];
+
+  if(index != NSNotFound && index != -1)
+    {
+      [cellTable selectRow: index byExtendingSelection: NO];
+      [cellTable scrollRowToVisible: index];
+    }
+  /* title Alignment */
+#warning TODO use tags 
+  switch ([[object headerCell] alignment])
+    {
+    case NSLeftTextAlignment:
+      [titleAlignmentMatrix selectCellAtRow: 0 column: 0];
+      break;
+    case NSCenterTextAlignment:
+      [titleAlignmentMatrix selectCellAtRow: 0 column: 1];
+      break;
+    case NSRightTextAlignment:
+      [titleAlignmentMatrix selectCellAtRow: 0 column: 2];
+      break;
+    default:
+      NSLog(@"Unhandled alignment value...");
+      break;
+    }
+  /* contents Alignment */
+#warning TODO use tags 
+  switch ([[object dataCell] alignment])
+    {
+    case NSLeftTextAlignment:
+      [contentsAlignmentMatrix selectCellAtRow: 0 column: 0];
+      break;
+    case NSCenterTextAlignment:
+      [contentsAlignmentMatrix selectCellAtRow: 0 column: 1];
+      break;
+    case NSRightTextAlignment:
+      [contentsAlignmentMatrix selectCellAtRow: 0 column: 2];
+      break;
+    default:
+      NSLog(@"Unhandled alignment value...");
+      break;
+    }
+
+  [identifierTextField setStringValue: [(NSTableColumn *)object identifier]];
+
+  /* options */
+  if ([object isResizable])
+    [resizableSwitch setState: NSOnState];
+  else
+    [resizableSwitch setState: NSOffState];
+
+  if ([object isEditable])
+    [editableSwitch setState: NSOnState];
+  else
+    [editableSwitch setState: NSOffState];
+
+  [super revert:sender];
 }
 
 
+#warning set private ? 
 - (NSString *)_getCellClassName
 {
   id cell = [[self object] dataCell];
@@ -268,14 +283,15 @@
 }
 
 
-// data source
+// Data Source 
+#warning replace by an NSBrowser ? 
 - (int) numberOfRowsInTableView: (NSTableView *)tv
 {
   NSArray *list = [[(id<Gorm>)NSApp classManager] allSubclassesOf: @"NSCell"];
   return [list count];
 }
 
-- (id)          tableView: (NSTableView *)tv
+- (id) tableView: (NSTableView *)tv
 objectValueForTableColumn: (NSTableColumn *)tc
 	              row: (int)rowIndex
 {

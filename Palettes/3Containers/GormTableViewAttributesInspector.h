@@ -30,7 +30,6 @@
   Author : Fabien Vallon <fabien@sonappart.net>
 */
 
-
 #ifndef	INCLUDED_GormTableViewAttributesInspector_h
 #define	INCLUDED_GormTableViewAttributesInspector_h
 
@@ -43,16 +42,21 @@
 
 @interface GormTableViewAttributesInspector: IBInspector
 {
+  /* selection */
   NSButton *multipleSelectionSwitch;
   NSButton *emptySelectionSwith;
   NSButton *columnSelectionSwitch;
+  /* scrollers */
   NSButton *verticalScrollerSwitch;
   NSButton *horizontalScrollerSwitch;
+
   NSMatrix *borderMatrix;
   NSForm *rowsHeightForm;
+  /* options */
   NSButton *drawgridSwitch;
   NSButton *resizingSwitch;
   NSButton *reorderingSwitch;
+  
   NSForm *tagForm;
   NSColorWell *backgroundColor;
 }

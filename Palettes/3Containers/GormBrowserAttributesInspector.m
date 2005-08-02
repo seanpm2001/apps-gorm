@@ -25,8 +25,8 @@
 */
 
 /*
-  July 2005 : Spilt inspector in separate classes.
-  Always use ok: revert: methods
+  July 2005 : Spilt inspector in separate classes. 
+ Always use ok: revert: methods
   Clean up
   Author : Fabien Vallon <fabien@sonappart.net>
 */
@@ -72,6 +72,7 @@
 /* Commit changes that the user makes in the Attributes Inspector */
 - (void) ok: (id)sender
 {
+  /* options */
   if ( sender == multipleSelectionSwitch ) 
     {
       [object setAllowsMultipleSelection: [multipleSelectionSwitch state]];
@@ -96,20 +97,22 @@
     {
       [object setTitled: [displayTitlesSwitch state]];
     }
+  /* minimum column width */
+  else if ( sender == minColumnWidthField ) 
+    {
+#warning TODO use stepper
+      [object setMinColumnWidth:[minColumnWidthField intValue]];
+    }
+  /* tag */
   else if(sender == tagForm)
     {
       [object setTag:[[tagForm cellAtIndex:0] intValue]];
-    }
-  else if ( sender == minColumnWidthField ) 
-    {
-      [object setMinColumnWidth:[minColumnWidthField intValue]];
     }
 
   [super ok:sender];
 }
 
-
-/* Sync from object ( NSBrowser ) changes to the inspector   */
+/* Sync from object ( NSBrowser ) changes to the inspector */
 - (void) revert: (id) sender
 {
   if (object == nil)
@@ -130,8 +133,7 @@
   [super revert:sender];
 }
 
-
-/* delegate method for form & textField */
+/* delegate method for tagForm and minColumnWidthField */
 -(void) controlTextDidChange:(NSNotification *)aNotification
 {
   [self ok:[aNotification object]];
