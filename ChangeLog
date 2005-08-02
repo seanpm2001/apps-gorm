@@ -1,3 +1,149 @@
+2005-08-02  Fabien VALLON  <fabien@sonappart.net>
+	* Palettes/2Controls/GormBoxAttributesInspector.m : new file
+	use ok: revert:, clean up and comments. Add NSBox IBObjectAdditions
+	category
+	* Palettes/2Controls/GormBoxAttributesInspector.h : new file
+	clean up and comments
+	* Palettes/2Controls/GormCellAttributesInspector.m: new file
+	use ok: revert: , clean up and comments. Add NSCell IBObjectAdditions
+	category
+	* Palettes/2Controls/GormCellAttributesInspector.h: new file
+	clean up and comments. 
+	* Palettes/2Controls/GormFormAttributesInspector.m: new file
+	use ok: revert:, replace optionMatrix by cellPositionSwitch,
+	editableSwitch,selectableSwitch, and scrollableSwitch.	
+	clean up and comments. 
+	Add NSForm IBObjectAdditions category
+	* Palettes/2Controls/GormFormAttributesInspector.h: new file
+	 replace optionMatrix by cellPositionSwitch,editableSwitch,
+	selectableSwitch, and scrollableSwitch.	clean up and comments. 
+	* Palettes/2Controls/GormNSFormInspector.gorm:
+	replace optionMatrix by cellPositionSwitch,editableSwitch, selectableSwitch,
+	and scrollableSwitch. setNextKeyView
+	* Palettes/2Controls/GormMatrixdAttributesInspector.m: new file
+	use ok: revert:. clean up and comments. Add NSMatrix IBObjectAdditions
+	category
+	* Palettes/2Controls/GormMatrixdAttributesInspector.h: new file
+	clean up and comments
+	* Palettes/2Controls/GormPopUpButtonAttributesInspector.m: new file
+	use ok: revert:, clean up and comments. Add NSPopUpButton 
+	IBObjectAdditions category
+	* Palettes/2Controls/GormPopUpButtonAttributesInspector.h : new file
+	clean up and comments
+	* Palettes/2Controls/GormSliderAttributesInspector.m: new file
+	use ok: revert:, clean up and comments.  Add NSSlider IBObjectAdditions
+	category. Remove : altForm, knobField, numberOfTicks,snapToTicks,
+	tickPosition
+	Rename : valueForm into valuesForm. clean up & comments.
+	* Palettes/2Controls/GormSliderAttributesInspector.h: new file
+	clean up and comments
+	* Palettes/2Controls/GormNSSliderInspector.gorm :
+	Remove : altForm, knobField, numberOfTicks,snapToTicks,tickPosition
+	Rename : valueForm into valuesForm.
+	Remove : ok: target for NSForms ( use delegate )
+	* Palettes/2Controls/GormStepperAttributesInspector.m: new file
+	use ok: revert: clean up and comments. Add NSStepper IBObjectAdditions
+	category
+	* Palettes/2Controls/GormStepperAttributesInspector.h: new file
+	Clean up and comments
+	* Palettes/2Controls/GormTextFieldAttributesInspector.m: new file
+	use ok: revert. replace optionsMatrix by editableSwitch,
+	selectableSwitch,scrollableSwitch. clean up and comments.
+	Add NSTextField IBObjectAdditions category.
+	* Palettes/2Controls/GormTextFieldAttributesInspector.h: new file
+	replace optionsMatrix by editableSwitch, selectableSwitch,
+	scrollableSwitch. clean up and comments.
+	* Palettes/2Controls/GormNSTextFieldInspector.gorm: 
+	replace optionsMatrix by editableSwitch, selectableSwitch
+	andscrollableSwitch. set NextKeyView:
+	* Palettes/2Controls/GormColorWellAttributesInspector.m: new file
+	renamed bordered in borderedSwitch, initialColor in initialColorWell,
+	disabled in disabledSwitch, tagValue in tagField.
+	remove  initialColorSelected:, disabledSelected:, borderedSelected:.
+	use ok: revert: clean up and comments.
+	* Palettes/2Controls/GormColorWellAttributesInspector.h: new file
+	renamed bordered in borderedSwitch, initialColor in initialColorWell,
+	disabled in disabledSwitch, tagValue in tagField.
+	remove  initialColorSelected:, disabledSelected:, borderedSelected:.
+	Clean up and comments.
+	* Palettes/2Controls/GormColorWellInspector.gorm:	
+	renamed bordered in borderedSwitch, initialColor in initialColorWell,
+	disabled in disabledSwitch, tagValue in tagField.
+	remove  initialColorSelected:, disabledSelected:, borderedSelected:.
+	tagField remove ok: target ( use delegate )
+	* Palettes/2Controls/GormProgressIndicatorAttributesInspector.m :
+	new file emove  doubleValue; borderMatrix. use ok: revert:
+	Clean up and comments
+	* Palettes/2Controls/GormProgressIndicatorAttributesInspector.h : 
+	new file remove  doubleValue; borderMatrix. Clean up and comments
+	* Palettes/2Controls/GormNSProgressIndicatorInspector.gorm: 
+	remove  doubleValue; borderMatrix
+	* Palettes/3Containers/GormBrowserAttributesInspector.m : new file
+	use ok: revert: , use multipleSelectionSwitch, emptySelectionSwitch,
+	branchSelectionSwitch,separateColumnsSwitch,horizontalScrollerSwitch,
+	and displayTitlesSwitch instead of optionMatrix.clean up and comments
+	Add NSBrowser category ( IBObjectAdditions ) 
+	* Palettes/3Containers/GormBrowserAttributesInspector.h : new file
+	use multipleSelectionSwitch, emptySelectionSwitch,
+	branchSelectionSwitch,separateColumnsSwitch,horizontalScrollerSwitch,
+	and displayTitlesSwitch instead of optionMatrix. clean up and comments
+	* Palettes/3Containers/GormNSBrowserInspector.gorm:
+	use multipleSelectionSwitch, emptySelectionSwitch,
+	branchSelectionSwitch,separateColumnsSwitch,horizontalScrollerSwitch,
+	and displayTitlesSwitch instead of optionMatrix. set nextKeyView:
+	* Palettes/3Containers/GormTableViewAttributesInspector.m: new file
+	use ok: revert:, replace selectionMatrix by  multipleSelectionSwitch,
+	emptySelectionSwith and columnSelectionSwitch, 
+	replace optionMatrix by drawgridSwitch, resizingSwitch and
+	reorderingSwitch.clean up and comments.
+	Add NSTableView category ( IBObjectAdditions ) 
+	* Palettes/3Containers/GormTableViewAttributesInspector.h: new file
+	replace selectionMatrix by  multipleSelectionSwitch,emptySelectionSwith
+	and columnSelectionSwitch. 
+	replace optionMatrix by drawgridSwitch, resizingSwitch
+	and reorderingSwitch.clean up and comments.
+	* Palettes/3Containers/GormNSTableViewInspector.gorm :
+	replace selectionMatrix
+	by  multipleSelectionSwitch,emptySelectionSwith and
+	columnSelectionSwitch. replace optionMatrix by drawgridSwitch, 
+	resizingSwitch and reorderingSwitch.set nextKeyView:
+	* Palettes/3Containers/GormTableColumnAttributesInspector.m : new file
+	clean up, comments and warnings ( TODO ) 
+	Add NSTableColumn category ( IBObjectAdditions ) 
+	* Palettes/3Containers/GormTableColumnAttributesInspector.h : new file
+	clean up and comments
+	* Palettes/3Containers/GormTableColumnSizeInspector.m: new file
+	use controlTextDidChange: for the form, clean up and comments.
+	Add IBObjectAdditionsSize category
+	* Palettes/3Containers/GormTableColumnSizeInspector.h: new file
+	clean up and comments.
+	* Palettes/3Containers/
+	GormNSTableColumnSizeInspector.gorm: remove 
+	ok: taget ( use delegate )
+	* Palettes/3Containers/GNUmakefile : add 
+	GormBrowserAttributesInspector.m
+	GormTabViewAttributesInspector.m, GormTableColumnAttributesInspector.m
+	GormTableColumnSizeInspector.m and GormTableViewAttributesInspector.
+	* Palettes/3Containers/inspector.m : remove 
+	GormBrowserAttributesInspector
+	GormTabViewAttributesInspector, GormTableColumnAttributesInspector
+	GormTableColumnSizeInspector and GormTableViewAttributesInspector
+	* Palettes/4Data/GormComboBoxAttributesInspector.m: new file 
+	* Palettes/4Data/GormImageViewAttributesInspector.m: new file
+	use ok:, revert:, clean up and comments
+	* Palettes/4Data/GormImageViewAttributesInspector.h: new file 
+	clean up 
+	* Palettes/4Data/GormTextViewAttributesInspector.m: new file
+	replace optionsMatrix by  selectableButton, editableButton,
+	multipleFontsButtonand graphicsButton, clean up and comments.
+	Add NSTextView IBObjectAdditions category
+	* Palettes/4Data/GormTextViewAttributesInspector.h: new file
+	replace optionsMatrix by selectableButton, editableButton, 
+	multipleFontsButton and graphicsButton, clean up and comments
+	* Palettes/4Data/GormNSTextViewInspector.gorm: replace optionsMatrix 
+	by selectableButton, editableButton, multipleFontsButton and
+	graphicsButton
+
 2005-07-30  Fabien VALLON  <fabien@sonappart.net>
 
 	* Palettes/1Window/GormWindowAttributesInspector.{m,h} : new files.
