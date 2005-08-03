@@ -3,10 +3,10 @@
 
    Copyright (C) 2001-2005 Free Software Foundation, Inc.
 
-   Author:  Adam Fedor <fedor@gnu.org>
-              Laurent Julliard <laurent@julliard-online.org>
+   Author: Adam Fedor <fedor@gnu.org>
+           Laurent Julliard <laurent@julliard-online.org>
    Date: Aug 2001
-   
+
    This file is part of GNUstep.
    
    This program is free software; you can redistribute it and/or modify
@@ -70,26 +70,21 @@
 /* Commit changes that the user makes in the Attributes Inspector */
 - (void) ok: (id) sender
 {
-#warning setNeedsDisplay required ? 
   if (sender == valueField)
     {
       [object setDoubleValue:[sender doubleValue]];
-      [object setNeedsDisplay: YES];
     }
   else if (sender == minimumValueField)
     {
       [object setMinValue:[sender doubleValue]];
-      [object setNeedsDisplay: YES];
     }
   else if (sender == maximumValueField)
     {
       [object setMaxValue:[sender doubleValue]];
-      [object setNeedsDisplay: YES];
     }
   else if (sender == incrementValueField)
     {
       [object setIncrement:[sender doubleValue]];
-      [object setNeedsDisplay: YES];
     }
   else if (sender == autorepeatButton)
     {
