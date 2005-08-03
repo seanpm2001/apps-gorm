@@ -3,7 +3,9 @@
    Copyright (C) 2001 Free Software Foundation, Inc.
 
    Author:  Laurent Julliard <laurent@julliard-online.org>
-   Date: Nov 2001
+   Date: Nov 2001   
+   Author:  Gregory Casamento <greg_casamento@yahoo.com>
+   Date: Nov 2003,2004,2005
    
    This file is part of GNUstep.
    
@@ -28,7 +30,7 @@
 #include <GormCore/GormPrivate.h>
 #include <GormCore/GormViewEditor.h>
 #include <GormCore/NSColorWell+GormExtensions.h>
-
+#include <GormCore/GormViewSizeInspector.h>
 
 /* this macro makes sure that the string contains a value, even if @"" */
 #define VSTR(str) ({id _str = str; (_str) ? _str : @"";})
@@ -47,20 +49,9 @@ extern NSArray *predefinedDateFormats, *predefinedNumberFormats;
  * NSTextView (possibly embedded in a Scroll view)
  */
 
-@interface GormViewSizeInspector : IBInspector
-{
-  NSButton	*top;
-  NSButton	*bottom;
-  NSButton	*left;
-  NSButton	*right;
-  NSButton	*width;
-  NSButton	*height;
-  NSForm        *sizeForm;
-}
-@end
-
 @interface GormTextViewSizeInspector : GormViewSizeInspector
 @end
+
 @implementation GormTextViewSizeInspector
 - (void) setObject: (id)anObject
 {
