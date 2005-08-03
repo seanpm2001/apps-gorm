@@ -4,7 +4,8 @@
    Copyright (C) 2001-2005 Free Software Foundation, Inc.
 
    Author:  Adam Fedor <fedor@gnu.org>
-              Laurent Julliard <laurent@julliard-online.org>
+            Laurent Julliard <laurent@julliard-online.org>
+            Gregory John Casamento <greg_casamento@yahoo.com>
    Date: Aug 2001
    
    This file is part of GNUstep.
@@ -25,7 +26,7 @@
 */
 
 /*
-  July 2005 : Spilt inspector in separate classes. 
+  July 2005 : Split inspector classes into separate files. 
  Always use ok: revert: methods
   Clean up
   Author : Fabien Vallon <fabien@sonappart.net>
@@ -40,16 +41,6 @@
 #include <AppKit/NSForm.h>
 #include <AppKit/NSNibLoading.h>
 #include <AppKit/NSTextField.h>
-
-/*
-  IBObjectAdditions category
-*/
-@implementation	NSBrowser (IBObjectAdditions)
-- (NSString*) inspectorClassName
-{
-  return @"GormBrowserAttributesInspector";
-}
-@end
 
 @implementation GormBrowserAttributesInspector
 

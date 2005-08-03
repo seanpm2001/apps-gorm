@@ -3,10 +3,12 @@
 
    Copyright (C) 2001-2005 Free Software Foundation, Inc.
 
-   Author:  Adam Fedor <fedor@gnu.org>
-            Laurent Julliard <laurent@julliard-online.org>
+   Author: Adam Fedor <fedor@gnu.org>
+           Laurent Julliard <laurent@julliard-online.org>
    Date: Aug 2001
-   
+   Author: Gregory John Casamento <greg_casamento@yahoo.com>
+   Date: 2003, 2004, 2005  
+
    This file is part of GNUstep.
    
    This program is free software; you can redistribute it and/or modify
@@ -25,7 +27,7 @@
 */
 
 /*
-  July 2005 : Spilt inspector in separate classes.
+  July 2005 : Split inspector classes into separate files.
   Always use ok: revert: methods
   Clean up
   Author : Fabien Vallon <fabien@sonappart.net>

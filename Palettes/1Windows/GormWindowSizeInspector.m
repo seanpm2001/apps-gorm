@@ -5,6 +5,8 @@
 
    Author:  Richard frith-Macdonald (richard@brainstorm.co.uk>
    Date: 1999
+   Author:  Gregory John Casamento <greg_casamento@yahoo.com>
+   Date: 2005
    
    This file is part of GNUstep.
    
@@ -24,7 +26,7 @@
 */
 
 /*
-  July 2005 : Spilt inspector in separate classes.
+  July 2005 : Split inspector classes into separate files.
   Always use ok: revert: methods
   Clean up
   Author : Fabien Vallon <fabien@sonappart.net>

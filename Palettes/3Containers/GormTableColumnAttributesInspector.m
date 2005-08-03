@@ -4,8 +4,11 @@
    Copyright (C) 2001-2005 Free Software Foundation, Inc.
 
    Author:  Adam Fedor <fedor@gnu.org>
-              Laurent Julliard <laurent@julliard-online.org>
+            Laurent Julliard <laurent@julliard-online.org>
    Date: Aug 2001
+   Author:  Gregory Casamento <greg_casamento@yahoo.com>
+            Added custom class handling for table column.
+   Date: 2004
    
    This file is part of GNUstep.
    
@@ -25,7 +28,7 @@
 */
 
 /*
-  July 2005 : Spilt inspector in separate classes.
+  July 2005 : Split inspector classes into separate files.
   Always use ok: revert: methods
   Clean up
   Author : Fabien Vallon <fabien@sonappart.net>
@@ -45,12 +48,6 @@
 /*
   IBObjectAdditions category
 */
-@implementation NSTableColumn (IBObjectAdditions)
-- (NSString *) inspectorClassName
-{
-  return @"GormTableColumnAttributesInspector";
-}
-@end
 
 @implementation GormTableColumnAttributesInspector
 
@@ -73,6 +70,25 @@
 - (void) awakeFromNib
 {
   [cellTable setDoubleAction: @selector(ok:)];
+}
+
+#warning set private ? 
+- (NSString *)_getCellClassName
+{
+  id cell = [[self object] dataCell];
+  NSString *customClassName = [[(id<Gorm>)NSApp classManager] customClassForObject: cell];
+  NSString *result = nil;
+
+  if(customClassName == nil)
+    {
+      result = NSStringFromClass([cell class]);
+    }
+  else
+    {
+      result = customClassName;
+    }
+  
+  return result;
 }
 
 /* Commit changes that the user makes in the Attributes Inspector */
@@ -261,27 +277,6 @@
 
   [super revert:sender];
 }
-
-
-#warning set private ? 
-- (NSString *)_getCellClassName
-{
-  id cell = [[self object] dataCell];
-  NSString *customClassName = [[(id<Gorm>)NSApp classManager] customClassForObject: cell];
-  NSString *result = nil;
-
-  if(customClassName == nil)
-    {
-      result = NSStringFromClass([cell class]);
-    }
-  else
-    {
-      result = customClassName;
-    }
-  
-  return result;
-}
-
 
 // Data Source 
 #warning replace by an NSBrowser ? 

@@ -4,7 +4,9 @@
    Copyright (C) 1999-2005 Free Software Foundation, Inc.
 
    Author:  Richard frith-Macdonald (richard@brainstorm.co.uk>
-   Date: 1999
+   Date: 1999   
+   Author:  Gregory John Casamento <greg_casamento@yahoo.com>
+   Date: 2002,2003,2004,2005
    
    This file is part of GNUstep.
    
@@ -24,7 +26,7 @@
 */
 
 /*
-  July 2005 : Spilt inspector in separate classes.
+  July 2005 : Split inspector classes into separate files.
   Always use ok: revert: methods
   Clean up
   Author : Fabien Vallon <fabien@sonappart.net>
@@ -32,14 +34,9 @@
 
 #include "GormWindowAttributesInspector.h"
 #include "GormNSWindow.h"
-
-#warning Should NOT call GormCore in Palette / Inspector !! ? 
 #include <GormCore/GormDocument.h>
 #include <GormCore/NSColorWell+GormExtensions.h>
-
 #include <AppKit/NSNibLoading.h>
-
-
 
 /*
   IBObjectAdditions category for NSPanel 

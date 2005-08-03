@@ -25,7 +25,7 @@
 */
 
 /*
-  July 2005 : Spilt inspector in separate classes.
+  July 2005 : Split inspector classes into separate files.
   Always use ok: revert: methods
   Clean up
   Author : Fabien Vallon <fabien@sonappart.net>

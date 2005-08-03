@@ -3,9 +3,11 @@
 
    Copyright (C) 2001-2005 Free Software Foundation, Inc.
 
-   Author:  Adam Fedor <fedor@gnu.org>
-              Laurent Julliard <laurent@julliard-online.org>
+   Author: Adam Fedor <fedor@gnu.org>
+           Laurent Julliard <laurent@julliard-online.org>
    Date: Aug 2001
+   Author: Gregory John Casamento <greg_casamento@yahoo.com>
+   Date: 2003, 2004, 2005
    
    This file is part of GNUstep.
    

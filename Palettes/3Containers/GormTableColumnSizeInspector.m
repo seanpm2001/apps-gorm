@@ -25,7 +25,7 @@
 */
 
 /*
-  July 2005 : Spilt inspector in separate classes.
+  July 2005 : Split inspector classes into separate files.
   Always use ok: revert: methods
   Clean up
   Author : Fabien Vallon <fabien@sonappart.net>
@@ -42,18 +42,6 @@
 #define MINIMUMINDEX 0
 #define CURRENTINDEX 1
 #define MAXIMUMINDEX 2
-
-/*
-  IBObjectAdditionsSize category
-*/
-@implementation NSTableColumn (IBObjectAdditionsSize)
-- (NSString*) sizeInspectorClassName
-{
-  return @"GormTableColumnSizeInspector";
-}
-@end
-
-
 
 @implementation GormTableColumnSizeInspector
 

@@ -5,7 +5,9 @@
 
    Author:  Richard frith-Macdonald (richard@brainstorm.co.uk>
    Date: 1999
-   
+   Author:  Gregory John Casamento <greg_casamento@yahoo.com>
+   Date: 2002,2003,2004,2005
+      
    This file is part of GNUstep.
    
    This program is free software; you can redistribute it and/or modify

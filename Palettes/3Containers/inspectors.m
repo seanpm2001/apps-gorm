@@ -24,53 +24,29 @@
 */
 
 #include <Foundation/Foundation.h>
-#include <AppKit/NSTableColumn.h>
-#include <AppKit/NSBrowser.h>
-#include <InterfaceBuilder/IBInspector.h>
-#include <GormCore/GormPrivate.h>
-#include <GormCore/NSColorWell+GormExtensions.h>
-#include "GormNSTableView.h"
+#include <AppKit/AppKit.h>
+#include <InterfaceBuilder/InterfaceBuilder.h>
 
 /* This macro makes sure that the string contains a value, even if @"" */
 #define VSTR(str) ({id _str = str; (_str) ? _str : @"";})
 
+/**
+ * IBObjectAdditions categories. 
+ */
 
-
-@interface GormViewSizeInspector : IBInspector
+@implementation	NSBrowser (IBObjectAdditions)
+- (NSString*) inspectorClassName
 {
-  NSButton	*top;
-  NSButton	*bottom;
-  NSButton	*left;
-  NSButton	*right;
-  NSButton	*width;
-  NSButton	*height;
-  NSForm        *sizeForm;
+  return @"GormBrowserAttributesInspector";
 }
 @end
 
-@interface GormTableViewSizeInspector : GormViewSizeInspector
-@end
+@implementation	NSTabView (IBObjectAdditions)
 
-
-
-/*----------------------------------------------------------------------------
- * NSTableView (possibly embedded in a Scroll view)
- */
-@implementation	NSTableView (IBObjectAdditionsSize)
-- (NSString*) sizeInspectorClassName
+- (NSString*) inspectorClassName
 {
-  return @"GormTableViewSizeInspector";
+  return @"GormTabViewAttributesInspector";
 }
-@end
-
-
-/*----------------------------------------------------------------------------
- * NSTabView (possibly embedded in a Scroll view)
- */
-
-static NSString *ITEM=@"item";
-
-@implementation	NSTabView (IBObjectAdditionsEditor)
 
 - (NSString*) editorClassName
 {
@@ -79,5 +55,21 @@ static NSString *ITEM=@"item";
 
 @end
 
+@implementation NSTableColumn (IBObjectAdditions)
+- (NSString *) inspectorClassName
+{
+  return @"GormTableColumnAttributesInspector";
+}
+@end
 
+@implementation	NSTableView (IBObjectAdditions)
+- (NSString*) inspectorClassName
+{
+  return @"GormTableViewAttributesInspector";
+}
 
+- (NSString*) sizeInspectorClassName
+{
+  return @"GormTableViewSizeInspector";
+}
+@end

@@ -35,13 +35,13 @@ PALETTE_NAME = 3Containers
 	GormNSTableView.m \
 	GormTableViewEditor.m \
 	GormTabViewEditor.m \
-	GormNSOutlineView.m\
-	GormBrowserAttributesInspector.m\
-	GormTabViewAttributesInspector.m\
-	GormTableColumnAttributesInspector.m\
-	GormTableColumnSizeInspector.m\
-	GormTableViewAttributesInspector.m\
-
+	GormNSOutlineView.m \
+	GormBrowserAttributesInspector.m \
+	GormTabViewAttributesInspector.m \
+	GormTableColumnAttributesInspector.m \
+	GormTableColumnSizeInspector.m \
+	GormTableViewAttributesInspector.m \
+	GormTableViewSizeInspector.m
 
 3Containers_RESOURCE_FILES = \
 	ContainersPalette.tiff \

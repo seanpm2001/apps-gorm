@@ -153,13 +153,17 @@
 }
 @end
 
-/* ---------------------------------------------------------
-NSwindow inspector
----------------------------------------------------------*/
 @implementation NSWindow (GormPrivate)
 + (id) allocSubstitute
 {
   return [GormNSWindow alloc];
+}
+@end
+
+@implementation NSPanel (GormPrivate)
++ (id) allocSubstitute
+{
+  return [GormNSPanel alloc];
 }
 @end
 

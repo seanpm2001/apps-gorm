@@ -24,7 +24,7 @@
    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02111 USA.
 */
 /*
-  July 2005 : Spilt inspector in separate classes.
+  July 2005 : Split inspector classes into separate files.
   Always use ok: revert: methods
   Clean up
   Author : Fabien Vallon <fabien@sonappart.net>
@@ -43,18 +43,6 @@
 #include <AppKit/NSForm.h>
 #include <AppKit/NSMatrix.h>
 #include <AppKit/NSNibLoading.h>
-
-
-/*
-  IBObjectAdditions category 
-*/
-
-@implementation	NSTableView (IBObjectAdditions)
-- (NSString*) inspectorClassName
-{
-  return @"GormTableViewAttributesInspector";
-}
-@end
 
 
 @implementation GormTableViewAttributesInspector

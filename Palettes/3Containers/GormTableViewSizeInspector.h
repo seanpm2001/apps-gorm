@@ -1,13 +1,10 @@
-/* 
-   GormWindowSizeInspector.h
-   
-   Copyright (C) 1999-2005 Free Software Foundation, Inc.
+/* GormTableViewSizeInspector -- size inspector for table and table subclasses.
 
-   Author:  Richard frith-Macdonald (richard@brainstorm.co.uk>
-   Date: 1999
+   Copyright (C) 2001 Free Software Foundation, Inc.
+
    Author:  Gregory John Casamento <greg_casamento@yahoo.com>
    Date: 2005
-      
+   
    This file is part of GNUstep.
    
    This program is free software; you can redistribute it and/or modify
@@ -25,34 +22,12 @@
    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02111 USA.
 */
 
-/*
-  July 2005 : Spilt inspector in separate classes.
-  Always use ok: revert: methods
-  Clean up
-  Author : Fabien Vallon <fabien@sonappart.net>
-*/
+#ifndef INCLUDED_GormTableViewSizeInspector_h
+#define INCLUDED_GormTableViewSizeInspector_h
 
-#ifndef	INCLUDED_GormWindowSizeInspector_h
-#define	INCLUDED_GormWindowSizeInspector_h
+#include <GormCore/GormViewSizeInspector.h>
 
-#include <InterfaceBuilder/IBInspector.h>
-
-@class NSButton;
-@class NSForm;
-
-@interface GormWindowSizeInspector : IBInspector
-{
-  NSForm *sizeForm;
-  NSForm *minForm;
-  NSForm *maxForm;
-
-  /* AutoPosition */
-  NSButton *top;
-  NSButton *bottom;
-  NSButton *left;
-  NSButton *right;
-}
-
+@interface GormTableViewSizeInspector : GormViewSizeInspector
 @end
 
 #endif

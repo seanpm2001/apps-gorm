@@ -24,7 +24,7 @@
    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02111 USA.
 */
 /*
-  July 2005 : Spilt inspector in separate classes.
+  July 2005 : Split inspector classes into separate files.
   Always use ok: revert: methods
   Clean up
   Author : Fabien Vallon <fabien@sonappart.net>
@@ -44,14 +44,6 @@
 #include <AppKit/NSTextField.h>
 
 static NSString *ITEM=@"item";
-
-@implementation	NSTabView (IBObjectAdditions)
-
-- (NSString*) inspectorClassName
-{
-  return @"GormTabViewAttributesInspector";
-}
-@end
 
 @implementation GormTabViewAttributesInspector
 
