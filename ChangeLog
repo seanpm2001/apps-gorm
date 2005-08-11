@@ -1,3 +1,10 @@
+2005-08-10 21:25 Gregory John Casamento <greg_casamento@yahoo.com>
+
+	* GormCore/GormDocument.[hm]: Merge fixes for detachObject:
+	* Gorm.m: Merge fix for comment.
+	* Palettes/3Containers/GormTableViewEditor.m: Merge fix for
+	pasteInSelection.
+
 2005-08-06 08:30 Gregory John Casamento <greg_casamento@yahoo.com>
 
 	* Version 0.11.0
