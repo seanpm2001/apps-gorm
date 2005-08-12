@@ -1,3 +1,7 @@
+2005-08-12 01:27 Gregory John Casamento <greg_casamento@yahoo.com>
+
+	* GormCore/GormClassEditor.m: Merge of crash fix from baseline.
+
 2005-08-10 21:25 Gregory John Casamento <greg_casamento@yahoo.com>
 
 	* GormCore/GormDocument.[hm]: Merge fixes for detachObject:
