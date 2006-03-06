@@ -165,15 +165,18 @@ static BOOL _isInInterfaceBuilder = NO;
 - (NSImage *) imageForViewer
 {
   NSImage *image = [super imageForViewer];
-  if([theClass isEqual: @"NSFontManager"])
+  GormClassManager *cm = [[(id<IB>)NSApp activeDocument] classManager];
+
+  if([theClass isEqual: @"NSFontManager"] ||
+     [cm isSuperclass: @"NSFontManager" linkedToClass: theClass])
     {
       NSBundle	*bundle = [NSBundle mainBundle];
       NSString *path = [bundle pathForImageResource: @"GormFontManager"]; 
-      image = [[NSImage alloc] initWithContentsOfFile: path];
+      image = [[NSImage alloc] initWithContentsOfFile: path];	  
     }
+
   return image;
 }
-
 @end
 
 // define the class proxy...

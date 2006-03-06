@@ -77,6 +77,7 @@
 - (NSArray *) objects;
 - (BOOL) isOpened;
 - (NSArray *) fileTypes;
+- (NSImage *) imageForViewer: (id)anObject;
 @end
 
 // private methods...

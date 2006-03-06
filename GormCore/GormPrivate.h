@@ -61,12 +61,16 @@ extern NSString *GormResizeCellNotification;
 @end
 
 @interface GormObjectProxy : GSNibItem 
+{
+  NSImage *imageForViewer;
+}
 /*
  * Use a GormObjectProxy in Gorm, but encode a GSNibItem in the archive.
  * This is done so that we can provide our own decoding method
  * (GSNibItem tries to morph into the actual class)
  */
 - (void) setClassName: (NSString *)className;
+- (void) setImageForViewer: (NSImage *)image;
 @end
 
 @interface GormClassProxy : NSObject

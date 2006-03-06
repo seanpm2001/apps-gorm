@@ -251,6 +251,11 @@
   return rect;
 }
 
+- (NSImage *)imageForViewer: (id)anObject
+{
+  return [anObject imageForViewer];
+}
+
 
 - (void) refreshCells
 {
@@ -282,7 +287,7 @@
       id		obj = [objects objectAtIndex: index];
       NSButtonCell	*but = [self cellAtRow: index/cols column: index%cols];
 
-      [but setImage: [obj imageForViewer]];
+      [but setImage: [self imageForViewer: obj]]; 
       [but setTitle: [document nameForObject: obj]];
       [but setShowsStateBy: NSChangeGrayCellMask];
       [but setHighlightsBy: NSChangeGrayCellMask];

@@ -1244,10 +1244,9 @@ static BOOL currently_displaying = NO;
 
 - (void) mouseDown: (NSEvent*)theEvent
 {
+  // start a action/outlet connection
   if ([theEvent modifierFlags] & NSControlKeyMask)
-    // start a action/outlet connection
     {
-
       // first we need to select ourself
       // to do so we need to find our first ancestor that can handle a selection
       NSView *view = [self superview];

@@ -70,6 +70,7 @@ Gorm_RESOURCE_FILES = \
 	Images/GormUnknown.tiff \
 	Images/GormSourceTag.tiff \
 	Images/GormTargetTag.tiff \
+	Images/GormWarningTag.tiff \
 	Images/GormLinkImage.tiff \
 	Images/GormEHCoil.tiff \
 	Images/GormEHLine.tiff \

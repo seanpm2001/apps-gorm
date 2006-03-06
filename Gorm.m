@@ -249,7 +249,7 @@
        result = NSRunAlertPanel(_(@"Quit"), 
 				_(@"There are edited windows"),
 				_(@"Review Unsaved"),
-				_( @"Quit Anyway"),
+				_(@"Quit Anyway"),
 				_(@"Cancel"));
       if (result == NSAlertDefaultReturn) 
 	{ 	  
@@ -1101,16 +1101,25 @@
 
   if([[GormDocument readableTypes] containsObject: ext])
     {
-      doc = AUTORELEASE([[GormDocument alloc] init]);
-      if ([doc loadDocument: fileName] == nil)
+      if([self documentNameIsUnique: fileName])
 	{
-	  doc = nil;
+	  doc = AUTORELEASE([[GormDocument alloc] init]);
+	  if ([doc loadDocument: fileName] == nil)
+	    {
+	      doc = nil;
+	    }
+	  else
+	    {
+	      [documents addObject: doc];
+	      [[doc window] orderFrontRegardless];
+	      [[doc window] makeKeyWindow];
+	    }
 	}
       else
 	{
-	  [documents addObject: doc];
-	  [[doc window] orderFrontRegardless];
-	  [[doc window] makeKeyWindow];
+	  NSRunAlertPanel(_(@"Problem Loading"),
+			  _(@"Attempted to load a model which is already opened."), 
+			  _(@"OK"), nil, nil);
 	}
     }
   

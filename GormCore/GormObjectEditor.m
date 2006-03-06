@@ -327,6 +327,30 @@ static NSMapTable	*docMap = 0;
 {
 }
 
+- (NSImage *) imageForViewer: (id)obj
+{
+  NSImage *returnImage = [obj imageForViewer];
+  if([obj isKindOfClass: [GormObjectProxy class]])
+    {
+      GormClassManager *classManager = [(GormDocument *)document classManager];
+      NSImage *warningImage = [NSImage imageNamed: @"GormWarningTag"];
+      NSArray *connections = [document connectorsForSource: obj
+				       ofClass: [NSNibOutletConnector class]];
+      NSArray *outlets = [classManager allOutletsForClassNamed: [obj className]];
+
+      if([outlets count] != [connections count])
+	{  
+	  NSLog(@"Warning...");
+	  returnImage = AUTORELEASE([returnImage copy]);
+	  [returnImage lockFocus];
+	  [warningImage compositeToPoint: NSZeroPoint
+			operation: NSCompositeSourceOver];
+	  [returnImage unlockFocus];
+	}
+    }
+  return returnImage; 
+}
+
 - (void) handleNotification: (NSNotification*)aNotification
 {
   NSString *name = [aNotification name];
@@ -340,6 +364,28 @@ static NSMapTable	*docMap = 0;
     {
       [IBResourceManager registerForAllPboardTypes: self
 			 inDocument: document];
+    }
+  else if([name isEqual: IBDidAddConnectorNotification] ||
+	  [name isEqual: IBDidRemoveConnectorNotification])
+    {
+      [self refreshCells];
+      /*
+      id con = [aNotification object];
+      id src = [con source];
+      [self displayWarningTag: src];
+      */
+    }
+  else if([name isEqual: GormDidModifyClassNotification])
+    {
+      [self refreshCells];
+      /*
+      NSEnumerator *en = [objects objectEnumerator];
+      id obj = nil;
+      while((obj = [en nextObject])!=nil)
+	{
+	  [self displayWarningTag: obj];
+	}
+      */
     }
 }
 
@@ -404,6 +450,24 @@ static NSMapTable	*docMap = 0;
 	addObserver: self
 	selector: @selector(handleNotification:)
 	name: IBResourceManagerRegistryDidChangeNotification
+	object: nil];
+
+      [[NSNotificationCenter defaultCenter]
+	addObserver: self
+	selector: @selector(handleNotification:)
+	name: IBDidRemoveConnectorNotification
+	object: nil];
+
+      [[NSNotificationCenter defaultCenter]
+	addObserver: self
+	selector: @selector(handleNotification:)
+	name: IBDidAddConnectorNotification
+	object: nil];
+
+      [[NSNotificationCenter defaultCenter]
+	addObserver: self
+	selector: @selector(handleNotification:)
+	name: GormDidModifyClassNotification
 	object: nil];
     }
   return self;
