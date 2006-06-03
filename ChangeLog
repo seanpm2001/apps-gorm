@@ -1,3 +1,16 @@
+2006-06-03 11:44 Gregory John Casamento <greg_casamento@yahoo.com>
+
+	* English.lproj/Gorm.gorm: Add GormDocumentController as delegate
+	to Gorm.
+	* GormCore/GormDocumentController.m: Comment.
+	* GormCore/GormDocument.h: Comments and containerClass declaration.
+	* GormCore/GormDocument.m: containerClass implementation and use.
+	* GormLib/IBDocuments.h: More descriptive comment.
+	* GormLib/IBPalette.m: Remove IBPaletteDocument, since this is
+	not used.
+	* Gorm.m: Remove applicationShouldTerminate, since it is handled
+	by GormDocumentController as the app delegate.
+
 2006-06-01 23:06 Gregory John Casamento <greg_casamento@yahoo.com>
 
 	* GormInfo.plist: Correct NSName entries.

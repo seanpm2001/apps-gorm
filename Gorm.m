@@ -34,7 +34,6 @@
 
 @interface Gorm : NSApplication <IB, Gorm>
 {
-  id			infoPanel;
   GormPrefController    *preferencesController;
   GormClassManager	*classManager;
   GormInspectorsManager	*inspectorsManager;
@@ -156,7 +155,6 @@
   NSNotificationCenter	*nc = [NSNotificationCenter defaultCenter];
 
   [nc removeObserver: self];
-  RELEASE(infoPanel);
   RELEASE(inspectorsManager);
   RELEASE(palettesManager);
   RELEASE(documents);
@@ -188,14 +186,6 @@
     {
       [[[self palettesManager] panel] makeKeyAndOrderFront: self];
     }
-
-  if(GSGetMethod([GSNibContainer class],@selector(awakeWithContext:),YES,YES) == NULL)
-    {
-      NSRunAlertPanel(_(@"Incorrect GNUstep Version"), 
-		      _(@"The version of GNUstep you are using is too old for this version of Gorm, please update."),
-		      _(@"OK"), nil, nil);
-      [self terminate: self];
-    }
 }
 
 - (void) applicationWillTerminate: (NSApplication*)sender
@@ -208,53 +198,6 @@
     forKey: @"ShowPalettes"];
 }
 
-- (BOOL) applicationShouldTerminate: (NSApplication*)sender
-{
-  id doc;
-  BOOL edited = NO;
-  NSEnumerator *enumerator = [documents objectEnumerator];
-  
-  if (isTesting == YES)
-    {
-       [self endTesting: sender];
-       return NO;
-    }
-  
-  while (( doc = [enumerator nextObject] ) != nil )
-    {
-    if ([[doc window]  isDocumentEdited] == YES)
-      {
-	edited = YES;
-	break;
-      }
-    }
-
-   if (edited == YES)
-     {
-       int	result;
-       result = NSRunAlertPanel(_(@"Quit"), 
-				_(@"There are edited windows"),
-				_(@"Review Unsaved"),
-				_( @"Quit Anyway"),
-				_(@"Cancel"));
-      if (result == NSAlertDefaultReturn) 
-	{ 	  
-	  enumerator = [ documents objectEnumerator];
- 	  while ((doc = [enumerator nextObject]) != nil)
- 	    {
- 	      if ( [[doc window]  isDocumentEdited] == YES)
- 		{
-		  if ( ! [doc canCloseDocument] )
-		    return NO;
- 		}
- 	    }	
-	}
-      else if (result == NSAlertOtherReturn) 
-	return NO; 
-     }
-   return YES;
-}
-  
 - (GormClassManager*) classManager
 {
   id document = [self activeDocument];

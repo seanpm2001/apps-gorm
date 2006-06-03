@@ -1,8 +1,6 @@
 /* GormDocumentController.m
  *
- * This class contains Gorm specific implementation of the IBDocuments
- * protocol plus additional methods which are useful for managing the
- * contents of the document.
+ * This class is a subclass of the NSDocumentController
  *
  * Copyright (C) 2006 Free Software Foundation, Inc.
  *

@@ -77,7 +77,7 @@
   NSMutableArray        *images;     /* temporary storage for images. */             
   NSMutableArray        *sounds;     /* temporary storage for sounds. */
   NSFileWrapper         *scmDirWrapper;
-  GSNibContainer        *container;
+  id<GSNibContainer>    container;
 }
 
 /* Archiving objects */
@@ -149,7 +149,7 @@
 /**
  * Return the container object associated with this document.
  */
-- (GSNibContainer *) container;
+- (id<GSNibContainer>) container;
 
 /**
  * Returns YES, if obj is a top level object.
@@ -304,32 +304,36 @@
  */
 - (void) alignSelectedObjects: (id)sender;
 
-/* 
- * windowAndRect:forObject: is called by Gorm to determine where it should
+/** 
+ * WindowAndRect:forObject: is called by Gorm to determine where it should
  * draw selection markup
  */
 - (NSWindow*) windowAndRect: (NSRect*)r forObject: (id)object;
+
+/**
+ * The container class to use in editing....
+ */
+- (Class) containerClass;
 @end
 
 @interface GormDocument (MenuValidation)
-
 /**
- * Returns TRUE if the document is editing instance/objects.
+ * Returns YES if the document is editing instance/objects.
  */
 - (BOOL) isEditingObjects;
 
 /**
- * Returns TRUE if the document is editing images.
+ * Returns YES if the document is editing images.
  */
 - (BOOL) isEditingImages;
 
 /**
- * Returns TRUE if the document is editing sounds.
+ * Returns YES if the document is editing sounds.
  */
 - (BOOL) isEditingSounds;
 
 /**
- * Returns TRUE if the document is editing classes.
+ * Returns YES if the document is editing classes.
  */
 - (BOOL) isEditingClasses;
 @end

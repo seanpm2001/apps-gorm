@@ -211,6 +211,11 @@ static NSImage  *fileImage = nil;
     }
 }
 
+- (Class) containerClass
+{
+  return [GSNibContainer class];
+}
+
 /**
  * Initialize the new GormDocument object.
  */
@@ -272,7 +277,7 @@ static NSImage  *fileImage = nil;
       /*
        * Set up container....
        */
-      container = [[GSNibContainer alloc] init];
+      container = [[[self containerClass] alloc] init];
       filesOwner = [[GormFilesOwner alloc] init];
       [self setName: @"NSOwner" forObject: filesOwner];
       firstResponder = [[GormFirstResponder alloc] init];
@@ -2230,7 +2235,9 @@ static NSImage  *fileImage = nil;
 }
 
 /**
- * Return the parent of anObject.
+ * Return the parent of anObject.  The File's Owner is the root object in the
+ * hierarchy, if anObject's parent is the Files's Owner, this method should return
+ * nil.
  */
 - (id) parentOfObject: (id)anObject
 {
@@ -2854,7 +2861,7 @@ static NSImage  *fileImage = nil;
 /**
  * Return the container object associated with this document.
  */
-- (GSNibContainer *) container
+- (id<GSNibContainer>) container
 {
   return container;
 }
