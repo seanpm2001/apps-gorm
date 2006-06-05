@@ -11,14 +11,6 @@
         NSIcon = "GormFile.tiff";
       },
       {
-	NSName = "GSGModelFileType";
-	NSHumanReadableName = "GNUstep GModel";
-	NSRole = Editor;
-	NSDocumentClass = GormDocument;
-        NSUnixExtensions = ( "gmodel" );
-        NSIcon = "FileIcon_gmodel.tiff";
-      },
-      {
 	NSName = "GSNibFileType";
 	NSHumanReadableName = "Cocoa Nib";
 	NSRole = Editor;
