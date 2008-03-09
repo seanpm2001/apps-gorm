@@ -24,19 +24,19 @@
 include $(GNUSTEP_MAKEFILES)/common.make
 
 BUNDLE_NAME = Nib
-Nib_PRINCIPAL_CLASS = NibPlugin
+BUNDLE_EXTENSION = .plugin
 
-Nib_OBJC_FILES = 
+Nib_OBJC_FILES = \
+	GormNibWrapperBuilder.m \
+	GormNibWrapperLoader.m
 
-Nib_RESOURCE_FILES = 
-
-Nib_STANDARD_INSTALL = no
+0Menus_STANDARD_INSTALL = no
 
 -include GNUmakefile.preamble
 
 -include GNUmakefile.local
 
-include $(GNUSTEP_MAKEFILES)/palette.make
+include $(GNUSTEP_MAKEFILES)/bundle.make
 
 -include GNUmakefile.postamble
 

@@ -351,7 +351,7 @@ static NSImage	*dragImage = nil;
 
       for (index = 0; index < [array count]; index++)
 	{
-	  [self loadPalette: [array objectAtIndex: index]];
+	  [self load: [array objectAtIndex: index]];
 	}
     }
 
@@ -362,7 +362,7 @@ static NSImage	*dragImage = nil;
        id paletteName = nil;
        while((paletteName = [en nextObject]) != nil)
 	 {
-	   [self loadPalette: paletteName];
+	   [self load: paletteName];
 	 }
      }
 
@@ -399,7 +399,7 @@ static NSImage	*dragImage = nil;
   return NO;
 }
 
-- (BOOL) loadPalette: (NSString*)path
+- (BOOL) load: (NSString*)path
 {
   NSBundle	*bundle;
   NSWindow	*window;
@@ -588,7 +588,7 @@ static NSImage	*dragImage = nil;
 	      // already in the bundles array.  This is to address bug#15989.
 	      [newUserPalettes addObject: aFile];
 	    }
-	  else if([self loadPalette: aFile] == NO)
+	  else if([self load: aFile] == NO)
 	    {
 	      return nil;
 	    }

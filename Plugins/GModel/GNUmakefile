@@ -24,19 +24,18 @@
 include $(GNUSTEP_MAKEFILES)/common.make
 
 BUNDLE_NAME = GModel
-GModel_PRINCIPAL_CLASS = GormPlugin
+BUNDLE_EXTENSION = .plugin
 
-GModel_OBJC_FILES = 
+GModel_OBJC_FILES = \
+	GormGModelWrapperLoader.m
 
-GModel_RESOURCE_FILES = 
-
-GModel_STANDARD_INSTALL = no
+0Menus_STANDARD_INSTALL = no
 
 -include GNUmakefile.preamble
 
 -include GNUmakefile.local
 
-include $(GNUSTEP_MAKEFILES)/palette.make
+include $(GNUSTEP_MAKEFILES)/bundle.make
 
 -include GNUmakefile.postamble
 

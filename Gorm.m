@@ -779,7 +779,7 @@
 
 - (void) loadPalette: (id) sender
 {
-  [[self palettesManager] openPalette: sender];
+  [[self palettesManager] open: sender];
 }
 
 /** Testing methods... */

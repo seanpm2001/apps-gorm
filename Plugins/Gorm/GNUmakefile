@@ -24,19 +24,19 @@
 include $(GNUSTEP_MAKEFILES)/common.make
 
 BUNDLE_NAME = Gorm
-Gorm_PRINCIPAL_CLASS = GormPlugin
+BUNDLE_EXTENSION = .plugin
 
-Gorm_OBJC_FILES = 
+Gorm_OBJC_FILES = \
+	GormGormWrapperBuilder.m \
+	GormGormWrapperLoader.m
 
-Gorm_RESOURCE_FILES = 
-
-Gorm_STANDARD_INSTALL = no
+0Menus_STANDARD_INSTALL = no
 
 -include GNUmakefile.preamble
 
 -include GNUmakefile.local
 
-include $(GNUSTEP_MAKEFILES)/palette.make
+include $(GNUSTEP_MAKEFILES)/bundle.make
 
 -include GNUmakefile.postamble
 

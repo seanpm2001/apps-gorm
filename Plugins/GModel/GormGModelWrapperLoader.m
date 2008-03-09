@@ -25,15 +25,15 @@
 #include <AppKit/NSWindow.h>
 #include <AppKit/NSNibConnector.h>
 #include <AppKit/NSFileWrapper.h>
-#include <GormWrapperLoader.h>
 #include <GNUstepGUI/GMArchiver.h>
 #include <GNUstepGUI/IMLoading.h>
 #include <GNUstepGUI/IMCustomObject.h>
 #include <GNUstepGUI/GSDisplayServer.h>
-#include "GormPrivate.h"
-#include "GormCustomView.h"
-#include "GormDocument.h"
-#include "GormFunctions.h"
+#include <GormCore/GormWrapperLoader.h>
+#include <GormCore/GormPrivate.h>
+#include <GormCore/GormCustomView.h>
+#include <GormCore/GormDocument.h>
+#include <GormCore/GormFunctions.h>
 
 static Class gmodel_class(NSString *className);
 

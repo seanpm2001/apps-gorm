@@ -47,8 +47,8 @@
 }
 
 // methods for loading and display the palette panels
-- (BOOL) loadPalette: (NSString*)path;
-- (id) openPalette: (id) sender;
+- (BOOL) load: (NSString*)path;
+- (id) open: (id) sender;
 - (NSPanel*) panel;
 - (void) setCurrentPalette: (id)anObject;
 
