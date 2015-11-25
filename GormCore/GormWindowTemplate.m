@@ -25,6 +25,9 @@
 #include "GormWindowTemplate.h"
 #include "GormNSWindow.h" 
 #include "GormNSPanel.h"
+#include "GormPalettesManager.h"
+#include "GormClassManager.h"
+#include "GormProtocol.h"
 
 // @class GormNSWindow;
 // @class GormNSPanel;
@@ -41,6 +44,18 @@
 @end
 
 @implementation GormWindowTemplate
+/*
+- (id) initWithCoder: (NSCoder *)coder
+{
+  self = [super initWithCoder:coder];
+  if(self != nil)
+    {
+      RETAIN(_windowClass);
+    }
+  return self;
+}
+*/
+
 - (id) nibInstantiate
 {
   id object = [super nibInstantiate];
@@ -54,12 +69,29 @@
 
 - (Class) baseWindowClass
 {
+  GormClassManager *classManager = [(id<Gorm>)NSApp classManager];
+  NSString *superClassName = [classManager nonCustomSuperClassOf: _windowClass];
+  const char *superClassCstring = [superClassName UTF8String];
+  NSString *supClassName = [NSString stringWithUTF8String: superClassCstring];
+  GormPalettesManager *palettesManager = [(id<Gorm>)NSApp palettesManager];
+  NSDictionary *substituteClasses = [palettesManager substituteClasses];
+  NSString *substituteClass = [substituteClasses objectForKey: supClassName];
+  NSString *result = substituteClass;
+  /*
   if([_windowClass isEqualToString:@"NSPanel"])
     {
       return [GormNSPanel class];
     }
   
   return [GormNSWindow class];
+  */
+
+  if(result == nil)
+    {
+      result = superClassName;
+    }
+
+  return NSClassFromString(result);
 }
 @end
 

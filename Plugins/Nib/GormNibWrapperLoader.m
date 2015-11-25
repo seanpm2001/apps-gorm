@@ -140,6 +140,7 @@
 	    }
 	  else
 	    {
+
 	      /*
 	       * Create an unarchiver, and use it to unarchive the gorm file while
 	       * handling class replacement so that standard objects understood
@@ -183,6 +184,26 @@
 		}
 	      else
 		{
+		  //
+		  // Add custom classes...
+		  //
+		  classesTable = [container classes];
+		  classKeys = NSAllMapTableKeys(classesTable);
+		  en = [classKeys objectEnumerator];
+		  while((o = [en nextObject]) != nil)
+		    {
+		      NSString *name = [document nameForObject: o];
+		      NSString *customClass = NSMapGet(classesTable, o);
+		      if(name != nil && customClass != nil)
+			{
+			  [classManager setCustomClass: customClass forName: name];
+			}
+		      else
+			{
+			  NSLog(@"Name %@ or class %@ for object %@ is nil.", name, customClass, o);
+			}
+		    }
+
 		  nibFilesOwner = [container objectForName: @"File's Owner"];
 		  
 		  docFilesOwner = [document filesOwner];
@@ -245,25 +266,7 @@
 			}
 		    }
 		  
-		  //
-		  // Add custom classes...
-		  //
-		  classesTable = [container classes];
-		  classKeys = NSAllMapTableKeys(classesTable);
-		  en = [classKeys objectEnumerator];
-		  while((o = [en nextObject]) != nil)
-		    {
-		      NSString *name = [document nameForObject: o];
-		      NSString *customClass = NSMapGet(classesTable, o);
-		      if(name != nil && customClass != nil)
-			{
-			  [classManager setCustomClass: customClass forName: name];
-			}
-		      else
-			{
-			  NSLog(@"Name %@ or class %@ for object %@ is nil.", name, customClass, o);
-			}
-		    }
+
 		  
 		  //
 		  // add connections...
